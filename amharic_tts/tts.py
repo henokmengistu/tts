@@ -48,6 +48,7 @@ class AmharicTTS:
         normalizer: AmharicNormalizer | NormalizerOptions | None = None,
         max_chunk_chars: int = 220,
         sentence_pause_ms: int = 0,
+        sentence_mode: bool = False,
         paragraph_pause_ms: int = 500,
         target_dbfs: float = -20.0,
         **engine_kwargs,
@@ -58,6 +59,7 @@ class AmharicTTS:
         self.engine = _load_engine(engine, **engine_kwargs)
         self.max_chunk_chars = max_chunk_chars
         self.sentence_pause_ms = sentence_pause_ms
+        self.sentence_mode = sentence_mode  # one engine call per sentence + explicit pauses
         self.paragraph_pause_ms = paragraph_pause_ms
         self.target_dbfs = target_dbfs
 
@@ -94,7 +96,7 @@ class AmharicTTS:
         for pi, para in enumerate(paragraphs):
             if pi:
                 pieces.append(A.silence(sr, self.paragraph_pause_ms))
-            chunks = chunk_text(para, max_chars=self.max_chunk_chars)
+            chunks = self._chunks(para)
             for ci, chunk in enumerate(chunks):
                 if ci and self.sentence_pause_ms:
                     pieces.append(A.silence(sr, self.sentence_pause_ms))
@@ -103,7 +105,14 @@ class AmharicTTS:
         wav = np.concatenate(pieces) if pieces else np.zeros(0, dtype=np.float32)
         wav = A.rms_normalize(wav, self.target_dbfs)
         return SynthesisResult(wav, sr, norm, self.engine.name, voice, elapsed=time.time() - t0,
-                               meta={"chunks": sum(len(chunk_text(p, self.max_chunk_chars)) for p in paragraphs)})
+                               meta={"chunks": sum(len(self._chunks(p)) for p in paragraphs)})
+
+    def _chunks(self, para: str) -> list[str]:
+        if self.sentence_mode:
+            from .text import split_sentences
+
+            return [s for s in split_sentences(para) if s.strip()]
+        return chunk_text(para, max_chars=self.max_chunk_chars)
 
     def stream(self, text: str, voice: str | None = None, speed: float = 1.0, **kwargs) -> Iterator[np.ndarray]:
         """Yield audio chunk by chunk (sentence groups) for progressive playback."""
@@ -111,7 +120,7 @@ class AmharicTTS:
         if voice is None:
             voice = self.default_voice()
         for para in (p for p in norm.split("\n") if p.strip()):
-            for chunk in chunk_text(para, max_chars=self.max_chunk_chars):
+            for chunk in self._chunks(para):
                 wav = self.engine.synthesize(chunk, voice=voice, speed=speed, **kwargs)
                 yield A.rms_normalize(A.fade(np.asarray(wav, dtype=np.float32), self.sample_rate), self.target_dbfs)
             yield A.silence(self.sample_rate, self.paragraph_pause_ms)

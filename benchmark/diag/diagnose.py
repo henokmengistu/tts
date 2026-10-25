@@ -133,6 +133,9 @@ def main():
     ap.add_argument("--class-temperature", type=float, default=None)
     ap.add_argument("--no-denoise", action="store_true")
     ap.add_argument("--no-postprocess", action="store_true")
+    ap.add_argument("--sentence-mode", action="store_true", help="one engine call per sentence")
+    ap.add_argument("--sentence-pause", type=int, default=0, help="ms of silence between sentences")
+    ap.add_argument("--pad", type=float, default=None, help="pad_duration seconds per side")
     ap.add_argument("--keep-ethiopic-punct", action="store_true")
     ap.add_argument("--merge-homophones", action="store_true")
     ap.add_argument("--model-path", default=None)
@@ -154,7 +157,8 @@ def main():
         kw = dict(num_steps=args.steps, guidance_scale=args.guidance)
         if args.model_path:
             kw["model_path"] = args.model_path
-        tts = AmharicTTS(engine="omnivoice", normalizer=nopt, **kw)
+        tts = AmharicTTS(engine="omnivoice", normalizer=nopt, sentence_mode=args.sentence_mode,
+                         sentence_pause_ms=args.sentence_pause, **kw)
     gen_kw = {}
     if args.t_shift is not None:
         gen_kw["t_shift"] = args.t_shift
@@ -166,6 +170,8 @@ def main():
         gen_kw["denoise"] = False
     if args.no_postprocess:
         gen_kw["postprocess_output"] = False
+    if args.pad is not None:
+        gen_kw["pad_duration"] = args.pad
 
     rows = []
     fh = (out / "rows.jsonl").open("w", encoding="utf-8")
