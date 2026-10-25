@@ -67,9 +67,24 @@ changed. Everything is reproducible with `benchmark/diag/diagnose.py`
    guidance setting can add detail the model never learned.
 6. **int8 quantisation is not an option** (CER 0 % → 16 %, UTMOS 3.3 → 1.4).
 
-## Ablations
+## Alternative checkpoints and engines (same 20 unseen sentences)
 
-_(filled in from `benchmark/diag/out/*/summary.json` as runs complete)_
+| system | CER | WER | deleted words | UTMOS | DNSMOS OVRL | energy >4 kHz | log-F0 std | RTF (CPU) |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| **Lab-et/omnivoice-amharic** (ours, default) | 2.6 % | 11.4 % | 20 / 595 | 3.14 | 3.21 | 0.3 % | 3.36 st | 6.7 |
+| gheero-Leyu/amharic-omnivoice-tts | 2.9 % | 13.5 % | 10 / ~300 | 3.11 | 3.18 | 0.3 % | 3.38 st | 6.9 |
+| k2-fsa/OmniVoice base (12.8 h Amharic) | 4.5 % | 18.9 % | 12 / ~300 | 3.13 | 3.16 | 0.3 % | **2.54 st** (monotone) | 15.1 |
+| natidotnet/chatterbox-amharic (LoRA on Chatterbox v3) | 0–6 % on 2 test sentences | – | – | 3.2–3.5 | 3.0–3.4 | 0.1 % | – | 17–26 |
+
+The Leyu checkpoint is the same training run re-uploaded (identical numbers
+within noise). The base model is less intelligible and noticeably flatter in
+pitch. Chatterbox-Amharic is intelligible and its stock 24 kHz decoder does
+not help: the output is just as band-limited (the LoRA was trained on the same
+16 kHz WaxalNLP data), and autoregressive decoding is 3× slower on CPU. The
+Amharic OmniVoice fine-tune stays the engine; the Chatterbox loader is kept in
+`amharic_tts/engines/chatterbox_engine.py` as an optional GPU-oriented candidate.
+
+## Ablations
 
 ABLATION_TABLE
 
