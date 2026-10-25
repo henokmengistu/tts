@@ -197,6 +197,21 @@ always written out by the recogniser):
 * OmniVoice-Amharic produces the most natural prosody and is the only system
   with multiple voices and zero-shot cloning; its cost is CPU speed.
 
+## Diffusion steps and voice choice (plain-prose subset, 20 sentences)
+
+| run | CER | UTMOS | DNSMOS SIG | DNSMOS BAK | DNSMOS OVRL | RTF (4-core CPU) |
+|---|---:|---:|---:|---:|---:|---:|
+| `selam`, 16 steps (default) | 2.2 % | 3.26 | 3.49 | 3.79 | 3.11 | 8.7 |
+| `selam`, 32 steps | 2.6 % | 3.33 | 3.52 | 3.84 | 3.15 | 16.5 |
+| `abebe` (male), 16 steps, speed 1.15 | **1.5 %** | 3.15 | 3.43 | 3.81 | 3.05 | 6.3 |
+| `hana`, 16 steps | 2.3 % | 2.88 | 3.44 | 3.74 | 3.01 | 9.5 |
+
+Doubling the diffusion steps costs 2× time for no measurable gain, so 16 is
+the default. All presets are intelligible at the level of the recogniser's
+own error floor; `abebe` is the most intelligible, `selam` scores highest on
+predicted naturalness. Raw data: `benchmark/out_steps32/`, `benchmark/out_abebe/`,
+`benchmark/out_hana/`.
+
 ## Notes on int8 quantisation
 
 Dynamic int8 quantisation of the Qwen3 backbone gives a 1.65× speed-up on CPU

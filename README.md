@@ -146,8 +146,9 @@ tts = AmharicTTS(normalizer=NormalizerOptions(
 OmniVoice-Amharic is a 600 M-parameter model. Measured on this project's
 4-core CPU box: real-time factor ≈ 4–6 at 16 diffusion steps (≈ 1 min for a
 12 s sentence) and ≈ 7–9 at 32 steps; a single T4 GPU gives well under 1.
-`--steps 8` is noticeably faster with a small quality cost; MMS (`-e mms`)
-runs faster than real time on CPU. Long inputs are synthesised chunk by chunk,
+32 steps measured no better than 16 (see BENCHMARK.md), and `--steps 8` is
+noticeably faster with a small quality cost; MMS (`-e mms`) runs faster than
+real time on CPU. Long inputs are synthesised chunk by chunk,
 so memory stays flat for arbitrarily long documents.
 
 ---
