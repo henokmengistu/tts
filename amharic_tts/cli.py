@@ -38,6 +38,8 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("--seed", type=int, default=None)
     s.add_argument("--raw", action="store_true", help="skip text normalisation")
     s.add_argument("--print-normalized", action="store_true")
+    s.add_argument("--ref-audio", help="one-off voice cloning: 3-10 s reference clip (omnivoice)")
+    s.add_argument("--ref-text", help="exact transcript of --ref-audio")
 
     n = sub.add_parser("normalize", help="print the normalised (spoken-form) text")
     n.add_argument("text", nargs="*")
@@ -103,8 +105,15 @@ def main(argv: list[str] | None = None) -> int:
     logging.getLogger("amharic-tts").info("engine ready in %.1fs", time.time() - t0)
     if args.print_normalized:
         print(tts.normalize(text))
+    extra = {}
+    if args.ref_audio:
+        if args.engine != "omnivoice":
+            raise SystemExit("--ref-audio needs the omnivoice engine")
+        if not args.ref_text:
+            raise SystemExit("--ref-text (transcript of the clip) is required with --ref-audio")
+        extra["voice_prompt"] = tts.engine.clone_prompt(args.ref_audio, args.ref_text)
     res = tts.save(text, args.out, voice=args.voice, speed=args.speed, sample_rate=args.sr,
-                   normalize=not args.raw, seed=args.seed)
+                   normalize=not args.raw, seed=args.seed, **extra)
     print(json.dumps({"out": args.out, "seconds": round(res.duration, 2), "elapsed": round(res.elapsed, 1),
                       "rtf": round(res.rtf, 2), "voice": res.voice, "engine": res.engine}, ensure_ascii=False))
     return 0
