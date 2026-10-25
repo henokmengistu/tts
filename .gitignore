@@ -15,3 +15,4 @@ benchmark/cache/
 !amharic_tts/voices/*.wav
 !samples/**/*.wav
 !samples/**/*.mp3
+samples/make_samples.log
