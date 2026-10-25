@@ -16,3 +16,5 @@ benchmark/cache/
 !samples/**/*.wav
 !samples/**/*.mp3
 samples/make_samples.log
+benchmark/diag/out/**/*.wav
+benchmark/diag/out/*.log

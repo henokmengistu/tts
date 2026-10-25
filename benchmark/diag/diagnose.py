@@ -43,10 +43,10 @@ def load_addis_items(n: int):
     items = []
     for line in (ADDIS / "data/prompts.jsonl").read_text(encoding="utf-8").splitlines():
         r = json.loads(line)
-        pid = r.get("prompt_id") or r.get("id")
-        text = r.get("reference_text") or r.get("text")
+        pid = r.get("case_id") or r.get("prompt_id") or r.get("id")
+        text = r.get("text") or r.get("reference_text")
         wav = ADDIS / "audio/human-reference" / f"{pid}.wav"
-        items.append(dict(id=pid, wav=str(wav), text=text, norm=text, gender="", dur=0.0, stratum=r.get("length_stratum") or r.get("stratum"), source=r.get("source") or r.get("source_dataset")))
+        items.append(dict(id=pid, wav=str(wav), text=text, norm=text, gender="", dur=0.0, stratum=r.get("length_stratum"), source=r.get("source")))
     return items[:n]
 
 
