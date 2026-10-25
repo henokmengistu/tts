@@ -92,8 +92,17 @@ curl -X POST http://localhost:8080/v1/audio/speech \
 | Offline / private | no | yes |
 | License | proprietary | Apache-2.0 code, Apache-2.0 model |
 
-Measured numbers (ASR round-trip character error rate with an independent
-Amharic recogniser, predicted MOS) are in [BENCHMARK.md](BENCHMARK.md).
+Measured on 41 benchmark utterances (details in [BENCHMARK.md](BENCHMARK.md)),
+ASR round-trip character error rate with an independent Amharic recogniser:
+
+| | plain prose | numbers / dates / abbreviations | all |
+|---|---:|---:|---:|
+| Google TTS | 1.4 % | 14.3 % | 7.7 % |
+| MMS-TTS | 8.3 % | 4.5 % | 6.3 % |
+| **amharic-tts** | 2.2 % | **2.6 %** | **2.3 %** |
+
+Predicted-MOS scores (UTMOS, DNSMOS) are on par with Google's voice; on
+normalisation-heavy text Google makes 5.5× more errors.
 
 ---
 
