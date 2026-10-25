@@ -1,0 +1,44 @@
+[build-system]
+requires = ["setuptools>=68", "wheel"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "amharic-tts"
+version = "0.1.0"
+description = "High-quality open-source Amharic text-to-speech: rule-based Amharic text normaliser + OmniVoice-Amharic / MMS neural voices"
+readme = "README.md"
+requires-python = ">=3.10"
+license = { text = "Apache-2.0" }
+authors = [{ name = "amharic-tts contributors" }]
+keywords = ["amharic", "tts", "text-to-speech", "ethiopic", "speech-synthesis"]
+classifiers = [
+  "Programming Language :: Python :: 3",
+  "Topic :: Multimedia :: Sound/Audio :: Speech",
+  "Natural Language :: Amharic",
+]
+dependencies = [
+  "numpy",
+  "soundfile",
+  "librosa",
+  "huggingface_hub",
+]
+
+[project.optional-dependencies]
+omnivoice = ["torch>=2.4", "torchaudio>=2.4", "omnivoice>=0.2.1", "transformers>=5.3.0"]
+mms = ["torch>=2.4", "transformers>=4.33", "uroman"]
+server = ["fastapi", "uvicorn", "pydantic"]
+bench = ["gtts", "jiwer", "onnxruntime"]
+all = ["amharic-tts[omnivoice,mms,server,bench]"]
+dev = ["pytest"]
+
+[project.scripts]
+amharic-tts = "amharic_tts.cli:main"
+
+[tool.setuptools.packages.find]
+include = ["amharic_tts*"]
+
+[tool.setuptools.package-data]
+"amharic_tts.voices" = ["*.json", "*.wav"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]

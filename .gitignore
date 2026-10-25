@@ -1,0 +1,14 @@
+__pycache__/
+*.pyc
+*.egg-info/
+build/
+dist/
+.pytest_cache/
+.venv/
+venv/
+*.pt
+benchmark/out/
+benchmark/cache/
+!amharic_tts/voices/*.wav
+!samples/**/*.wav
+!samples/**/*.mp3
