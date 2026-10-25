@@ -25,6 +25,7 @@ class VoiceSpec:
     description: str = ""
     source: str = ""
     license: str = ""
+    speed: float = 1.0           # default tempo multiplier for this voice
     _dir: Path | None = None
 
     @property

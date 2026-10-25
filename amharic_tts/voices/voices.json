@@ -5,9 +5,9 @@
      "ref_text": "በሽተኛው በናይጄሪያ ነበር አንዳንድ የኢቦላ ቫይረስ የተከሰተበት ስፍራ።", "source": "google/fleurs am_et dev 8454968810419015880", "license": "CC-BY-4.0"},
     {"name": "hana", "audio": "hana.wav", "gender": "female", "description": "warm female voice, slightly slower delivery",
      "ref_text": "በዚህ ወቅት የመጀመሪያዎቹ የበሽታው አጋጣሚዎች በሐምሌ ወር መጨረሻ ላይ ነበር ሪፖርት የተደረጉት።", "source": "google/fleurs am_et dev 4645007359104857933", "license": "CC-BY-4.0"},
-    {"name": "abebe", "audio": "abebe.wav", "gender": "male", "description": "clear male voice, neutral read style",
+    {"name": "abebe", "audio": "abebe.wav", "gender": "male", "description": "clear male voice, neutral read style", "speed": 1.15,
      "ref_text": "ሁሉም አደጋው ከነበረበት ቦታ ሮጠው ሄዱ።", "source": "google/fleurs am_et train 11504885075435382487", "license": "CC-BY-4.0"},
-    {"name": "dawit", "audio": "dawit.wav", "gender": "male", "description": "deeper male voice, calm delivery",
+    {"name": "dawit", "audio": "dawit.wav", "gender": "male", "description": "deeper male voice, calm delivery", "speed": 1.1,
      "ref_text": "ጎብኚዎች ባላቸው ጥቂት ጊዜ በሌላ ቦታ ቢያሳልፉ ይመከራል።", "source": "google/fleurs am_et train 4098048737560961134", "license": "CC-BY-4.0"}
   ]
 }

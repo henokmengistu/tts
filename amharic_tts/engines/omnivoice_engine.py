@@ -167,6 +167,9 @@ class OmniVoiceEngine(Engine):
         if seed is not None:
             torch.manual_seed(seed)
         prompt = voice_prompt if voice_prompt is not None else self._voice_prompt(voice)
+        spec = self.voices.get(voice) if voice else None
+        if spec is not None and spec.speed and abs(speed - 1.0) < 1e-3:
+            speed = spec.speed  # voice-specific default tempo
         cfg = self._GenCfg(
             num_step=num_steps or self.num_steps,
             guidance_scale=self.guidance_scale if guidance_scale is None else guidance_scale,
