@@ -104,6 +104,10 @@ ASR round-trip character error rate with an independent Amharic recogniser:
 Predicted-MOS scores (UTMOS, DNSMOS) are on par with Google's voice; on
 normalisation-heavy text Google makes 5.5× more errors.
 
+Listen for yourself: [`samples/compare/`](samples/compare) has the same
+sentences spoken by amharic-tts, Google and MMS, and [`samples/`](samples)
+has every preset voice on four texts.
+
 ---
 
 ## Architecture
