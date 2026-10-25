@@ -81,5 +81,43 @@ def to_int16(wav: np.ndarray) -> np.ndarray:
 
 __all__ = [
     "peak_normalize", "rms_normalize", "trim_silence", "fade", "silence",
-    "concat_with_pauses", "resample", "to_int16",
+    "concat_with_pauses", "resample", "to_int16", "apply_eq", "EQ_PRESETS",
 ]
+
+
+# ----------------------------------------------------------------------
+# Spectral correction.  The Amharic OmniVoice fine-tune was trained on
+# 16 kHz corpora and its output is 10-30 dB short of natural speech between
+# 4 and 8 kHz (measured against FLEURS recordings; see BENCHMARK.md).  A
+# fixed linear-phase FIR with a measured gain curve restores the presence /
+# brightness band; gains are capped so codec noise is not amplified.
+EQ_PRESETS: dict[str, list[tuple[float, float]]] = {
+    # (frequency Hz, gain dB) breakpoints; linear interpolation in between
+    "none": [(0, 0.0), (12000, 0.0)],
+    "bright": [(0, 0.0), (2500, 0.0), (3500, 1.5), (4500, 4.0), (5500, 7.0), (6500, 9.0), (7500, 9.0),
+               (8500, 4.0), (9500, -6.0), (12000, -12.0)],
+    "bright_soft": [(0, 0.0), (3000, 0.0), (4500, 2.5), (5500, 4.5), (6500, 6.0), (7500, 6.0), (8500, 2.0),
+                    (9500, -6.0), (12000, -12.0)],
+}
+
+
+def apply_eq(wav: np.ndarray, sr: int, preset: str | list[tuple[float, float]] = "bright", numtaps: int = 1023) -> np.ndarray:
+    """Apply a linear-phase FIR equaliser defined by (Hz, dB) breakpoints."""
+    from scipy.signal import firwin2, fftconvolve
+
+    curve = EQ_PRESETS[preset] if isinstance(preset, str) else preset
+    nyq = sr / 2
+    freqs = [0.0]
+    gains = [10 ** (curve[0][1] / 20)]
+    for f, g in curve:
+        if 0 < f < nyq:
+            freqs.append(f / nyq)
+            gains.append(10 ** (g / 20))
+    freqs.append(1.0)
+    gains.append(10 ** (curve[-1][1] / 20))
+    taps = firwin2(numtaps, freqs, gains)
+    out = fftconvolve(wav.astype(np.float32), taps.astype(np.float32), mode="same")
+    peak = float(np.max(np.abs(out))) if out.size else 0.0
+    if peak > 0.99:
+        out = out * (0.99 / peak)
+    return out.astype(np.float32)
