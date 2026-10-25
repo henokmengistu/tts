@@ -4,7 +4,6 @@
     curl -X POST localhost:8080/v1/audio/speech -H 'content-type: application/json' \
          -d '{"input":"ሰላም ዓለም","voice":"selam","response_format":"mp3"}' -o hi.mp3
 """
-from __future__ import annotations
 
 import threading
 from typing import Optional
