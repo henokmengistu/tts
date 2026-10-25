@@ -60,6 +60,9 @@ NORM_TABLE
 
 ## Notes on int8 quantisation
 
-Dynamic int8 quantisation of the Qwen3 backbone gives ~1.6× speed-up on CPU
-but destroyed intelligibility in our test (CER 100 %), so it stays opt-in
-(`--quant`) and is not recommended.
+Dynamic int8 quantisation of the Qwen3 backbone gives a 1.65× speed-up on CPU
+(34 s vs 57 s for an 8 s sentence) but degrades the output badly: CER rose
+from 0 % to 16 % and predicted MOS collapsed (UTMOS 3.3 → 1.4) on the same
+sentence; quantising the audio heads as well made the output unintelligible.
+It therefore stays opt-in (`--quant`) and is not recommended. The practical
+speed knobs are `--steps 8` and a GPU.
