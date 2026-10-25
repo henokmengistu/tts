@@ -6,3 +6,39 @@
 1760 cer= 1.6 del=0 sub=1 last=False utmos=1.78 ro99=7273 f0sd=3.9 rate=5.0
 1957 cer= 8.6 del=0 sub=2 last=False utmos=3.42 ro99=7164 f0sd=3.6 rate=4.2
 1975 cer=10.7 del=0 sub=2 last=False utmos=2.24 ro99=1969 f0sd=2.5 rate=6.2
+1982 cer= 3.1 del=0 sub=1 last=False utmos=3.66 ro99=2203 f0sd=2.6 rate=5.8
+1909 cer= 2.9 del=0 sub=2 last=False utmos=2.43 ro99=7492 f0sd=4.3 rate=6.3
+2007 cer= 7.0 del=0 sub=3 last=False utmos=2.79 ro99=4125 f0sd=2.4 rate=6.6
+1920 cer= 3.8 del=0 sub=2 last=False utmos=3.55 ro99=1930 f0sd=3.0 rate=5.6
+1693 cer=21.9 del=0 sub=5 last=False utmos=2.62 ro99=7453 f0sd=4.6 rate=4.6
+1955 cer= 9.9 del=0 sub=4 last=False utmos=3.78 ro99=2422 f0sd=3.3 rate=6.0
+1885 cer=41.7 del=0 sub=4 last=False utmos=2.26 ro99=7617 f0sd=7.4 rate=3.4
+1720 cer= 1.6 del=0 sub=1 last=False utmos=3.62 ro99=2852 f0sd=3.0 rate=5.5
+2003 cer= 1.7 del=0 sub=1 last=False utmos=3.44 ro99=1438 f0sd=2.7 rate=5.6
+1786 cer=12.9 del=0 sub=4 last=True utmos=2.89 ro99=2633 f0sd=3.5 rate=6.0
+1844 cer= 0.0 del=0 sub=0 last=False utmos=2.87 ro99=2977 f0sd=3.0 rate=5.6
+1684 cer= 9.9 del=1 sub=2 last=False utmos=3.63 ro99=3039 f0sd=3.6 rate=4.6
+1815 cer= 9.6 del=1 sub=4 last=False utmos=2.44 ro99=1625 f0sd=2.5 rate=7.1
+1739 cer= 1.6 del=0 sub=1 last=False utmos=4.00 ro99=2844 f0sd=3.8 rate=5.6
+1801 cer= 3.8 del=1 sub=3 last=False utmos=3.24 ro99=2406 f0sd=3.0 rate=5.9
+1830 cer=11.8 del=4 sub=2 last=False utmos=3.37 ro99=2148 f0sd=3.9 rate=5.7
+2002 cer= 3.7 del=1 sub=2 last=False utmos=2.32 ro99=2797 f0sd=3.1 rate=6.4
+1828 cer= 3.0 del=0 sub=2 last=False utmos=3.69 ro99=2133 f0sd=3.5 rate=6.0
+1938 cer= 1.1 del=0 sub=1 last=False utmos=3.28 ro99=2781 f0sd=3.5 rate=6.8
+1745 cer= 1.6 del=1 sub=1 last=False utmos=3.58 ro99=1883 f0sd=3.2 rate=5.8
+1800 cer=20.0 del=0 sub=1 last=False utmos=2.93 ro99=1797 f0sd=3.7 rate=5.0
+1755 cer= 6.1 del=0 sub=1 last=False utmos=2.66 ro99=7570 f0sd=4.9 rate=3.6
+1818 cer= 7.1 del=0 sub=2 last=False utmos=2.25 ro99=6945 f0sd=3.9 rate=6.6
+1776 cer=22.2 del=1 sub=4 last=False utmos=3.28 ro99=1742 f0sd=3.9 rate=4.4
+1756 cer= 4.2 del=0 sub=3 last=False utmos=2.62 ro99=3039 f0sd=3.1 rate=7.2
+1816 cer= 6.8 del=0 sub=2 last=False utmos=3.46 ro99=1906 f0sd=3.1 rate=5.5
+1758 cer=16.1 del=2 sub=8 last=False utmos=2.42 ro99=7492 f0sd=3.8 rate=5.7
+1668 cer= 0.0 del=0 sub=0 last=False utmos=3.06 ro99=2375 f0sd=2.5 rate=7.0
+1849 cer= 0.0 del=0 sub=0 last=False utmos=2.79 ro99=2977 f0sd=2.7 rate=5.4
+1838 cer= 3.4 del=0 sub=2 last=False utmos=2.50 ro99=7086 f0sd=3.9 rate=5.7
+1926 cer= 1.9 del=0 sub=1 last=False utmos=2.39 ro99=1656 f0sd=4.5 rate=7.0
+1922 cer= 3.3 del=0 sub=3 last=False utmos=2.39 ro99=2117 f0sd=4.1 rate=7.6
+1678 cer= 1.8 del=1 sub=2 last=False utmos=2.34 ro99=2070 f0sd=3.6 rate=8.0
+1769 cer= 7.4 del=0 sub=3 last=False utmos=2.14 ro99=1844 f0sd=4.0 rate=7.5
+1826 cer= 0.0 del=0 sub=0 last=False utmos=3.69 ro99=2648 f0sd=2.9 rate=5.4
+{"cer": 0.06925568642819525, "wer": 0.19994230893805198, "utmos": 2.9541691541671753, "SIG": 3.2392032009722733, "BAK": 3.8841909380375736, "OVRL": 2.842085454722712, "rolloff95": 2098.2421875, "rolloff99": 3505.46875, "e4k": 0.04532195976644289, "e7k": 0.017008848015393596, "f0_std_st": 3.532201717512882, "voiced": 0.4139690431443198, "syl_per_s": 5.777728500011064, "dur": 9.75, "rtf": null, "del_total": 13, "sub_total": 83, "ins_total": 20, "words_total": 580, "last_word_err_rate": 0.025, "first_word_err_rate": 0.275, "n": 40, "name": "human"}

@@ -1,3 +1,47 @@
-Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]Fetching 11 files: 100%|██████████| 11/11 [00:00<00:00, 1595.45it/s]
-Loading weights:   0%|          | 0/313 [00:00<?, ?it/s]Loading weights:  33%|███▎      | 103/313 [00:00<00:00, 1027.66it/s]Loading weights:  66%|██████▌   | 206/313 [00:00<00:00, 913.27it/s] Loading weights: 100%|██████████| 313/313 [00:00<00:00, 1331.19it/s]
-Loading weights:   0%|          | 0/527 [00:00<?, ?it/s]Loading weights:  25%|██▍       | 130/527 [00:00<00:00, 1295.61it/s]Loading weights:  49%|████▉     | 260/527 [00:00<00:00, 1199.11it/s]Loading weights: 100%|██████████| 527/527 [00:00<00:00, 1898.83it/s]
+Fetching 11 files:   0%|          | 0/11 [00:00<?, ?it/s]Fetching 11 files: 100%|██████████| 11/11 [00:00<00:00, 1767.99it/s]
+Loading weights:   0%|          | 0/313 [00:00<?, ?it/s]Loading weights:  40%|████      | 126/313 [00:00<00:00, 1249.71it/s]Loading weights: 100%|██████████| 313/313 [00:00<00:00, 1563.01it/s]
+Loading weights:   0%|          | 0/527 [00:00<?, ?it/s]Loading weights:  24%|██▍       | 126/527 [00:00<00:00, 1255.32it/s]Loading weights:  48%|████▊     | 252/527 [00:00<00:00, 1175.87it/s]Loading weights:  74%|███████▍  | 389/527 [00:00<00:00, 1260.06it/s]Loading weights: 100%|██████████| 527/527 [00:00<00:00, 1461.60it/s]
+Loading weights:   0%|          | 0/797 [00:00<?, ?it/s]Loading weights:  21%|██        | 168/797 [00:00<00:00, 1677.07it/s]Loading weights:  42%|████▏     | 336/797 [00:00<00:00, 1622.50it/s]Loading weights:  63%|██████▎   | 499/797 [00:00<00:00, 1606.64it/s]Loading weights: 100%|██████████| 797/797 [00:00<00:00, 2197.66it/s]
+/home/user/venv/lib/python3.13/site-packages/torch/nn/utils/weight_norm.py:145: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
+  WeightNorm.apply(module, name, dim)
+1703 cer= 0.0 del=0 sub=0 last=False utmos=3.08 ro99=3059 f0sd=4.1 rate=8.1
+1949 cer= 3.3 del=0 sub=1 last=False utmos=2.73 ro99=2801 f0sd=3.2 rate=8.3
+1760 cer= 0.0 del=0 sub=0 last=False utmos=2.79 ro99=2379 f0sd=3.6 rate=8.0
+1957 cer= 5.7 del=0 sub=2 last=False utmos=3.42 ro99=2520 f0sd=3.6 rate=8.1
+1975 cer= 2.5 del=1 sub=2 last=False utmos=3.22 ro99=2660 f0sd=3.1 rate=7.4
+1982 cer= 0.0 del=0 sub=0 last=False utmos=3.04 ro99=2543 f0sd=2.9 rate=8.3
+1909 cer= 2.9 del=0 sub=2 last=False utmos=2.89 ro99=2906 f0sd=2.5 rate=8.4
+2007 cer= 0.0 del=0 sub=0 last=False utmos=3.24 ro99=3164 f0sd=3.1 rate=7.9
+1920 cer= 6.4 del=1 sub=3 last=False utmos=2.91 ro99=2848 f0sd=4.1 rate=8.5
+1693 cer= 1.4 del=0 sub=1 last=False utmos=2.86 ro99=3691 f0sd=3.5 rate=6.8
+1955 cer= 1.4 del=1 sub=1 last=False utmos=2.88 ro99=2977 f0sd=4.0 rate=7.9
+1885 cer= 3.6 del=0 sub=1 last=False utmos=3.48 ro99=3094 f0sd=2.4 rate=5.6
+1720 cer= 1.6 del=0 sub=1 last=False utmos=2.99 ro99=2930 f0sd=3.9 rate=8.2
+2003 cer= 5.0 del=1 sub=2 last=False utmos=3.09 ro99=1828 f0sd=3.3 rate=8.4
+1786 cer= 3.3 del=2 sub=1 last=False utmos=3.34 ro99=3012 f0sd=3.0 rate=7.1
+1844 cer= 8.6 del=1 sub=4 last=False utmos=3.18 ro99=3012 f0sd=3.9 rate=8.1
+1684 cer= 7.0 del=2 sub=3 last=False utmos=3.71 ro99=3023 f0sd=3.9 rate=7.5
+1815 cer= 1.4 del=0 sub=1 last=False utmos=2.98 ro99=2145 f0sd=2.9 rate=8.1
+1739 cer= 0.0 del=0 sub=0 last=False utmos=3.45 ro99=2742 f0sd=3.1 rate=8.3
+1801 cer= 3.8 del=1 sub=3 last=True utmos=2.95 ro99=2930 f0sd=3.6 rate=8.0
+1830 cer= 9.2 del=4 sub=1 last=False utmos=3.25 ro99=2965 f0sd=4.0 rate=8.0
+2002 cer= 2.4 del=1 sub=1 last=False utmos=3.01 ro99=3316 f0sd=5.4 rate=8.3
+1828 cer= 0.0 del=0 sub=0 last=False utmos=3.63 ro99=2883 f0sd=2.7 rate=8.2
+1938 cer= 0.0 del=0 sub=0 last=False utmos=3.12 ro99=3562 f0sd=3.0 rate=8.1
+1745 cer= 0.0 del=0 sub=0 last=False utmos=2.79 ro99=2379 f0sd=3.5 rate=8.2
+1800 cer= 1.2 del=0 sub=1 last=False utmos=2.94 ro99=2988 f0sd=4.3 rate=6.9
+1755 cer= 8.3 del=0 sub=2 last=False utmos=3.21 ro99=2965 f0sd=3.8 rate=7.2
+1818 cer= 1.8 del=0 sub=1 last=False utmos=3.72 ro99=2871 f0sd=2.4 rate=8.4
+1776 cer= 5.8 del=1 sub=3 last=False utmos=2.55 ro99=2883 f0sd=4.1 rate=6.7
+1756 cer= 0.0 del=0 sub=0 last=False utmos=2.86 ro99=2812 f0sd=2.6 rate=8.1
+1816 cer= 6.8 del=0 sub=3 last=False utmos=3.15 ro99=2777 f0sd=2.6 rate=8.7
+1758 cer= 2.2 del=1 sub=2 last=False utmos=2.71 ro99=2988 f0sd=3.0 rate=7.3
+1668 cer= 0.0 del=0 sub=0 last=False utmos=3.34 ro99=2672 f0sd=2.8 rate=8.1
+1849 cer= 0.0 del=0 sub=0 last=False utmos=3.43 ro99=3012 f0sd=3.5 rate=8.0
+1838 cer= 3.4 del=1 sub=2 last=False utmos=3.54 ro99=3094 f0sd=3.2 rate=8.0
+1926 cer= 0.0 del=0 sub=0 last=False utmos=3.46 ro99=2930 f0sd=4.1 rate=8.3
+1922 cer= 0.0 del=0 sub=0 last=False utmos=2.81 ro99=2977 f0sd=3.6 rate=8.4
+1678 cer= 1.8 del=0 sub=1 last=False utmos=3.07 ro99=2965 f0sd=2.5 rate=8.2
+1769 cer= 2.1 del=2 sub=1 last=False utmos=2.99 ro99=2742 f0sd=3.3 rate=7.7
+1826 cer= 0.0 del=0 sub=0 last=False utmos=3.68 ro99=2730 f0sd=2.5 rate=8.2
+{"cer": 0.025757023261268133, "wer": 0.11395047193518555, "utmos": 3.1368586122989655, "SIG": 3.5303469752334107, "BAK": 3.945861631791536, "OVRL": 3.210623469469787, "rolloff95": 1019.82421875, "rolloff99": 2869.3359375, "e4k": 0.003387659820145927, "e7k": 1.9047341902478364e-05, "f0_std_st": 3.3636173659273316, "voiced": 0.4837231076044577, "syl_per_s": 7.900549790962122, "dur": 7.1645, "rtf": 6.745403565600583, "del_total": 20, "sub_total": 46, "ins_total": 1, "words_total": 595, "last_word_err_rate": 0.025, "first_word_err_rate": 0.2, "n": 40, "name": "default"}
