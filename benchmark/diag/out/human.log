@@ -1,25 +1,7 @@
-Loading weights:   0%|          | 0/797 [00:00<?, ?it/s]Loading weights:  19%|█▉        | 154/797 [00:00<00:00, 1536.66it/s]Loading weights:  39%|███▊      | 308/797 [00:00<00:00, 1461.83it/s]Loading weights:  59%|█████▉    | 470/797 [00:00<00:00, 1526.47it/s]Loading weights: 100%|██████████| 797/797 [00:00<00:00, 2248.65it/s]
+Loading weights:   0%|          | 0/797 [00:00<?, ?it/s]Loading weights:  23%|██▎       | 180/797 [00:00<00:00, 1783.46it/s]Loading weights:  45%|████▌     | 362/797 [00:00<00:00, 1803.78it/s]Loading weights:  68%|██████▊   | 543/797 [00:00<00:00, 1744.22it/s]Loading weights: 100%|██████████| 797/797 [00:00<00:00, 2291.03it/s]
 /home/user/venv/lib/python3.13/site-packages/torch/nn/utils/weight_norm.py:145: FutureWarning: `torch.nn.utils.weight_norm` is deprecated in favor of `torch.nn.utils.parametrizations.weight_norm`.
   WeightNorm.apply(module, name, dim)
 1703 cer= 0.0 del=0 sub=0 last=False utmos=3.51 ro99=3031 f0sd=3.5 rate=4.8
 1949 cer= 3.3 del=0 sub=1 last=False utmos=2.84 ro99=2719 f0sd=3.1 rate=4.4
 1760 cer= 1.6 del=0 sub=1 last=False utmos=1.78 ro99=7273 f0sd=3.9 rate=5.0
 1957 cer= 8.6 del=0 sub=2 last=False utmos=3.42 ro99=7164 f0sd=3.6 rate=4.2
-1975 cer=10.7 del=0 sub=2 last=False utmos=2.24 ro99=1969 f0sd=2.5 rate=6.2
-1982 cer= 3.1 del=0 sub=1 last=False utmos=3.66 ro99=2203 f0sd=2.6 rate=5.8
-1909 cer= 2.9 del=0 sub=2 last=False utmos=2.43 ro99=7492 f0sd=4.3 rate=6.3
-2007 cer= 7.0 del=0 sub=3 last=False utmos=2.79 ro99=4125 f0sd=2.4 rate=6.6
-1920 cer= 3.8 del=0 sub=2 last=False utmos=3.55 ro99=1930 f0sd=3.0 rate=5.6
-1693 cer=21.9 del=0 sub=5 last=False utmos=2.62 ro99=7453 f0sd=4.6 rate=4.6
-1955 cer= 9.9 del=0 sub=4 last=False utmos=3.78 ro99=2422 f0sd=3.3 rate=6.0
-1885 cer=41.7 del=0 sub=4 last=False utmos=2.26 ro99=7617 f0sd=7.4 rate=3.4
-1720 cer= 1.6 del=0 sub=1 last=False utmos=3.62 ro99=2852 f0sd=3.0 rate=5.5
-2003 cer= 1.7 del=0 sub=1 last=False utmos=3.44 ro99=1438 f0sd=2.7 rate=5.6
-1786 cer=12.9 del=0 sub=4 last=True utmos=2.89 ro99=2633 f0sd=3.5 rate=6.0
-1844 cer= 0.0 del=0 sub=0 last=False utmos=2.87 ro99=2977 f0sd=3.0 rate=5.6
-1684 cer= 9.9 del=1 sub=2 last=False utmos=3.63 ro99=3039 f0sd=3.6 rate=4.6
-1815 cer= 9.6 del=1 sub=4 last=False utmos=2.44 ro99=1625 f0sd=2.5 rate=7.1
-1739 cer= 1.6 del=0 sub=1 last=False utmos=4.00 ro99=2844 f0sd=3.8 rate=5.6
-1801 cer= 3.8 del=1 sub=3 last=False utmos=3.24 ro99=2406 f0sd=3.0 rate=5.9
-1830 cer=11.8 del=4 sub=2 last=False utmos=3.37 ro99=2148 f0sd=3.9 rate=5.7
-2002 cer= 3.7 del=1 sub=2 last=False utmos=2.32 ro99=2797 f0sd=3.1 rate=6.4

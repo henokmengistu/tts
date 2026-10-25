@@ -118,7 +118,10 @@ def _dnsmos():
         p.parent.mkdir(parents=True, exist_ok=True)
         urllib.request.urlretrieve(
             "https://raw.githubusercontent.com/microsoft/DNS-Challenge/master/DNSMOS/DNSMOS/sig_bak_ovr.onnx", p)
-    return ort.InferenceSession(str(p), providers=["CPUExecutionProvider"])
+    so = ort.SessionOptions()
+    so.intra_op_num_threads = 2
+    so.inter_op_num_threads = 1
+    return ort.InferenceSession(str(p), sess_options=so, providers=["CPUExecutionProvider"])
 
 
 def dnsmos(wav: np.ndarray, sr: int) -> dict[str, float]:
