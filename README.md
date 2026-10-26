@@ -109,6 +109,10 @@ truncations. Delivery was then calibrated to Addis Voice 2's calm pace
 (5.5 syllables/s, natural phrase pauses) and the voices re-cast by measurement;
 the full diagnosis and every number are in [DIAGNOSIS.md](DIAGNOSIS.md).
 
+A second, independent "ear": `benchmark/gemini_judge.py` has a Gemini audio
+model transcribe, rate, A/B-compare (both orders) and rank all systems blind;
+see [benchmark/GEMINI_JUDGE.md](benchmark/GEMINI_JUDGE.md).
+
 Listen for yourself: [`samples/compare/`](samples/compare) has the same
 sentences spoken by amharic-tts, Google and MMS, and [`samples/`](samples)
 has every preset voice on four texts.
