@@ -90,7 +90,32 @@ ABLATION_TABLE
 
 ## Comparison on Addis AI's benchmark prompts
 
-ADDIS_TABLE
+All 100 prompts of `addisai/amharic-tts-benchmark`; Addis Voice 2 clips are
+the ones Addis AI archived; "human" = the 67 original recordings that ship as
+WAV. Same recogniser and metrics for every row.
+
+| | amharic-tts (selam, 16 steps, default tempo) | Addis Voice 2 | human recordings |
+|---|---:|---:|---:|
+| CER / WER | **3.6 % / 13.4 %** | 5.6 % / 17.1 % | 9.5 % / 23.8 % |
+| prompts won on CER (of 100) | **58** (17 ties) | 25 | – |
+| deleted words | 60 / 2456 | 52 / 2436 | 76 / 1545 |
+| last-word error rate | **5 %** | 10 % | 16 % |
+| UTMOS | 3.06 | **3.21** | 2.44 |
+| DNSMOS OVRL / SIG / BAK | 3.28 / 3.59 / 3.98 | **3.41 / 3.67 / 4.14** | 2.75 / 3.26 / 3.47 |
+| energy above 4 kHz | 0.3 % | 0.1 % | 1.1 % |
+| spectral roll-off 95 % | 1015 Hz | 652 Hz | 1333 Hz |
+| log-F0 std (semitones) | 3.38 | 3.28 | 3.94 |
+| speaking rate (syl/s, whole clip) | 8.0 | **5.0** | 6.4 |
+| pauses per 10 s / mean pause | 0.8 / 0.09 s | **4.9 / 0.40 s** | 2.6 / 0.34 s |
+| CER by length: short / medium / long | 6.1 / 2.8 / 1.9 % | 8.0 / 5.7 / 3.0 % | – |
+| CER by source: FLEURS / Horn-ASR / Waxal | 4.6 / 4.0 / 2.2 % | 6.8 / 7.3 / 2.6 % | – |
+
+Reading: we are already *more intelligible* than Addis Voice 2 on their own
+prompts and truncate sentence endings half as often. Addis Voice 2 is **not**
+brighter (it is even more band-limited), and its pitch range is no wider. What
+it does differently is *delivery*: 40 % slower, with a 0.4 s pause roughly every
+two seconds, and a slightly cleaner predicted signal quality. Those are the
+parameters the fixes below target.
 
 ## Changes made as a result
 
