@@ -1,0 +1,1639 @@
+[
+ {
+  "kind": "transcribe",
+  "id": "greeting",
+  "system": "meron",
+  "hyp": "ሰላም እንኳን ደህና መጣችሁ ይህ በነጻ ሶፍትዌር የተሰራ የአማርኛ የንግግር ድምጽ ነው",
+  "cer": 0.0
+ },
+ {
+  "kind": "diagnose",
+  "id": "greeting",
+  "system": "selam",
+  "text": "ሰላም፣ እንኳን ደህና መጣችሁ። ይህ በነጻ ሶፍትዌር የተሠራ የአማርኛ የንግግር ድምፅ ነው።",
+  "transcript_heard": "ሰላም፣ እንኳን ደህና መጣችሁ። ይህ በነጻ ሶፍትዌር የተሠራ የአማርኛ የንግግር ድምፅ ነው።",
+  "issues": [],
+  "overall_impression": "ድምፁ በጣም ተፈጥሯዊ እና ግልጽ ነው። ማንኛውም የአማርኛ ተናጋሪ በቀላሉ ሊረዳው ይችላል።",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "transcribe",
+  "id": "greeting",
+  "system": "selam",
+  "hyp": "ሰላም እንኳን ደህና መጣችሁ ይህ በነጻ ሶፍትዌር የተሰራ የአማርኛ የንግግር ድምጽ ነው",
+  "cer": 0.0
+ },
+ {
+  "kind": "diagnose",
+  "id": "greeting",
+  "system": "liya",
+  "text": "ሰላም፣ እንኳን ደህና መጣችሁ። ይህ በነጻ ሶፍትዌር የተሠራ የአማርኛ የንግግር ድምፅ ነው።",
+  "transcript_heard": "ሰላም፣ እንኳን ደህና መጣችሁ። ይህ በነጻ ሶፍትዌር የተሠራ የአማርኛ የንግግር ድምፅ ነው።",
+  "issues": [],
+  "overall_impression": "The speech sounds clear and natural, closely mimicking a professional human speaker. The pronunciation, intonation, and pacing are all accurate.",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "diagnose",
+  "id": "greeting",
+  "system": "meron",
+  "text": "ሰላም፣ እንኳን ደህና መጣችሁ። ይህ በነጻ ሶፍትዌር የተሠራ የአማርኛ የንግግር ድምፅ ነው።",
+  "transcript_heard": "ሰላም እንኳን ደህና መጣችሁ ይህ በነጻ ሶፍትዌር የተሰራ የአማርኛ የንግግር ድምፅ ነው።",
+  "issues": [
+   {
+    "type": "wrong_gemination_or_stress",
+    "text_word": "ደህና",
+    "heard_as": "ደህና",
+    "start": "00:01",
+    "end": "00:02",
+    "severity": 1,
+    "description": "The stress and intonation on 'ደህና' sound slightly unnatural compared to a natural human delivery."
+   }
+  ],
+  "overall_impression": "The speech is mostly clear and understandable with correct pronunciation overall. However, slight unnatural stress patterns reveal its synthetic nature.",
+  "would_a_native_listener_notice_problems": true,
+  "overall": 4
+ },
+ {
+  "kind": "transcribe",
+  "id": "greeting",
+  "system": "liya",
+  "hyp": "ሰላም እንኳን ደህና መጣችሁ ይህ በነጻ ሶፍትዌር የተሰራ የአማርኛ የንግግር ድምጽ ነው",
+  "cer": 0.0
+ },
+ {
+  "kind": "transcribe",
+  "id": "greeting",
+  "system": "sara",
+  "hyp": "ሰላም እንኳን ደህና መጣችሁ ይህ በነጻ ሶፍትዌር የተሰራ የአማርኛ የንባብ ድምፅ ነው",
+  "cer": 0.05555555555555555
+ },
+ {
+  "kind": "diagnose",
+  "id": "greeting",
+  "system": "sara",
+  "text": "ሰላም፣ እንኳን ደህና መጣችሁ። ይህ በነጻ ሶፍትዌር የተሠራ የአማርኛ የንግግር ድምፅ ነው።",
+  "transcript_heard": "ሰላም፣ እንኳን ደህና መጣችሁ። ይህ በነጻ ሶፍትዌር የተሠራ የአማርኛ የንግግር ድምፅ ነው።",
+  "issues": [],
+  "overall_impression": "The speech sounds completely natural and fluent, perfectly matching human articulation. There are no noticeable artifacts or pronunciation mistakes.",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "transcribe",
+  "id": "greeting",
+  "system": "yonas",
+  "hyp": "ሰላም እንኳን ደህና መጣችሁ ይህ በነጻ ሶፍትዌር የተሰራ የአማርኛ የንግግር ድምጽ ነው",
+  "cer": 0.0
+ },
+ {
+  "kind": "transcribe",
+  "id": "greeting",
+  "system": "biruk",
+  "hyp": "ሰላም እንኳን ደህና መጣችሁ ይህ በነጻ ሶፍትዌር የተሰራ የአማርኛ የንግግር ድምጽ ነው",
+  "cer": 0.0
+ },
+ {
+  "kind": "diagnose",
+  "id": "greeting",
+  "system": "yonas",
+  "text": "ሰላም፣ እንኳን ደህና መጣችሁ። ይህ በነጻ ሶፍትዌር የተሠራ የአማርኛ የንግግር ድምፅ ነው።",
+  "transcript_heard": "ሰላም፣ እንኳን ደህና መጣችሁ። ይህ በነጻ ሶፍትዌር የተሠራ የአማርኛ የንግግር ድምፅ ነው።",
+  "issues": [],
+  "overall_impression": "ድምፁ በጣም ግልጽ እና ተፈጥሯዊ ነው። ከሰው ድምፅ ፈጽሞ የማይለይ ጥራት አለው።",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "diagnose",
+  "id": "greeting",
+  "system": "biruk",
+  "text": "ሰላም፣ እንኳን ደህና መጣችሁ። ይህ በነጻ ሶፍትዌር የተሠራ የአማርኛ የንግግር ድምፅ ነው።",
+  "transcript_heard": "ሰላም፣ እንኳን ደህና መጣችሁ። ይህ በነጻ ሶፍትዌር የተሠራ የአማርኛ የንግግር ድምፅ ነው።",
+  "issues": [],
+  "overall_impression": "ድምፁ በጣም ጥርት ያለ እና ከተፈጥሮ ንግግር የማይለይ ነው። ምንም አይነት ስህተት የለውም።",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "diagnose",
+  "id": "greeting",
+  "system": "dawit",
+  "text": "ሰላም፣ እንኳን ደህና መጣችሁ። ይህ በነጻ ሶፍትዌር የተሠራ የአማርኛ የንግግር ድምፅ ነው።",
+  "transcript_heard": "ሰላም፣ እንኳን ደህና መጣችሁ። ይህ በነጻ ሶፍትዌር የተሠራ የአማርኛ የንግግር ድምፅ ነው።",
+  "issues": [],
+  "overall_impression": "ድምፁ በጣም ተፈጥሯዊ እና ግልጽ ነው። ምንም አይነት ጉድለት አልታየበትም።",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "pair",
+  "id": "greeting",
+  "ref": "biruk",
+  "other": "selam",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "selam",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B has much better prosody, natural pauses, and tone, whereas Clip A sounds very robotic and unnatural."
+ },
+ {
+  "kind": "pair",
+  "id": "greeting",
+  "ref": "biruk",
+  "other": "meron",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "meron",
+  "better_overall": "A",
+  "more_natural": "A",
+  "more_intelligible": "A",
+  "reason": "Clip A has better prosody and natural pauses compared to Clip B, which sounds more robotic and stilted."
+ },
+ {
+  "kind": "transcribe",
+  "id": "greeting",
+  "system": "dawit",
+  "hyp": "ሰላም እንኳን ደህና መጣችሁ ይህ በነፃ ሶፍትዌር የተሰራ የአማርኛ የንግግር ድምፅ ነው",
+  "cer": 0.0
+ },
+ {
+  "kind": "pair",
+  "id": "greeting",
+  "ref": "biruk",
+  "other": "meron",
+  "order": "ref_second",
+  "A": "meron",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds much more natural and has better intonation and pauses compared to Clip A, which sounds a bit more robotic and unnatural."
+ },
+ {
+  "kind": "pair",
+  "id": "greeting",
+  "ref": "biruk",
+  "other": "liya",
+  "order": "ref_second",
+  "A": "liya",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B has a much more natural intonation, better pacing, and clearer pronunciation compared to Clip A, which sounds more robotic and has unnatural pauses."
+ },
+ {
+  "kind": "pair",
+  "id": "greeting",
+  "ref": "biruk",
+  "other": "selam",
+  "order": "ref_second",
+  "A": "selam",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds much more natural, has better intonation and cadence, and is easier to understand than Clip A, which has an unnatural pause and robotic inflection."
+ },
+ {
+  "kind": "pair",
+  "id": "greeting",
+  "ref": "biruk",
+  "other": "liya",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "liya",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds much more natural, has better intonation, pacing, and clarity compared to Clip A which has robotic pauses and unnatural pitch."
+ },
+ {
+  "kind": "pair",
+  "id": "greeting",
+  "ref": "biruk",
+  "other": "yonas",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "yonas",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip A has an unnatural pause/stutter near the beginning and mispronounces 'ሶፍትዌር'. Clip B is much smoother, clearer, and more natural."
+ },
+ {
+  "kind": "pair",
+  "id": "greeting",
+  "ref": "biruk",
+  "other": "sara",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "sara",
+  "better_overall": "A",
+  "more_natural": "A",
+  "more_intelligible": "A",
+  "reason": "Clip A has a more natural tone and better pacing compared to Clip B, which sounds more robotic and slightly rushed."
+ },
+ {
+  "kind": "pair",
+  "id": "greeting",
+  "ref": "biruk",
+  "other": "sara",
+  "order": "ref_second",
+  "A": "sara",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds much more natural and has better intonation and pacing compared to Clip A, which sounds more robotic and has uneven phrasing."
+ },
+ {
+  "kind": "pair",
+  "id": "greeting",
+  "ref": "biruk",
+  "other": "dawit",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "dawit",
+  "better_overall": "A",
+  "more_natural": "A",
+  "more_intelligible": "A",
+  "reason": "Clip A sounds much more natural and fluent with proper pronunciation and intonation. Clip B has an unnatural pause and distorted pronunciation of the word 'ሶፍትዌር'."
+ },
+ {
+  "kind": "pair",
+  "id": "greeting",
+  "ref": "biruk",
+  "other": "dawit",
+  "order": "ref_second",
+  "A": "dawit",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds much more natural and has better intonation and pacing compared to Clip A, which sounds more robotic and has unnatural pauses."
+ },
+ {
+  "kind": "rank",
+  "id": "greeting",
+  "rep": 0,
+  "order": [
+   "meron",
+   "selam",
+   "liya",
+   "biruk",
+   "dawit",
+   "yonas",
+   "sara"
+  ],
+  "labels": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E",
+   "F",
+   "G"
+  ],
+  "ranking_overall": [
+   "meron",
+   "liya",
+   "sara",
+   "selam",
+   "yonas",
+   "biruk",
+   "dawit"
+  ],
+  "ranking_naturalness": [
+   "meron",
+   "liya",
+   "sara",
+   "selam",
+   "yonas",
+   "biruk",
+   "dawit"
+  ],
+  "sounds_human": [
+   "meron"
+  ],
+  "notes": "Clip A sounds the most natural with good intonation and rhythm. The other clips have robotic artifacts and unnatural pauses."
+ },
+ {
+  "kind": "rank",
+  "id": "greeting",
+  "rep": 1,
+  "order": [
+   "liya",
+   "biruk",
+   "selam",
+   "dawit",
+   "sara",
+   "yonas",
+   "meron"
+  ],
+  "labels": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E",
+   "F",
+   "G"
+  ],
+  "ranking_overall": [
+   "selam",
+   "meron",
+   "liya",
+   "sara",
+   "yonas",
+   "biruk",
+   "dawit"
+  ],
+  "ranking_naturalness": [
+   "selam",
+   "meron",
+   "liya",
+   "sara",
+   "yonas",
+   "biruk",
+   "dawit"
+  ],
+  "sounds_human": [
+   "selam",
+   "meron"
+  ],
+  "notes": "Clips C and G have very natural intonation, good pacing, and sound almost indistinguishable from a human. Clips A, E, and F are decent but have slight robotic artifacts. Clips B and D sound much more synthetic and unnatural."
+ },
+ {
+  "kind": "diagnose",
+  "id": "news",
+  "system": "selam",
+  "text": "የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ። መመሪያው የውጭ ምንዛሬ ግብይትን የሚመለከት ሲሆን፣ ከነገ ጀምሮ ተግባራዊ ይሆናል።",
+  "transcript_heard": "የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ። መመሪያው የውጭ ምንዛሬ ግብይትን የሚመለከት ሲሆን፣ ከነገ ጀምሮ ተግባራዊ ይሆናልል።",
+  "issues": [],
+  "overall_impression": "የድምፅ ንባቡ በጣም ግልጽ እና ተፈጥሯዊ ነው። ምንም ዓይነት ችግር የለውም እና እንደ እውነተኛ ሰው ድምፅ አለው።",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "transcribe",
+  "id": "news",
+  "system": "selam",
+  "hyp": "የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ መመሪያው የውጭ ምንዛሬ ግብይትን የሚመለከት ሲሆን ከነገ ጀምሮ ተግባራዊ ይሆናል",
+  "cer": 0.0
+ },
+ {
+  "kind": "pair",
+  "id": "greeting",
+  "ref": "biruk",
+  "other": "yonas",
+  "order": "ref_second",
+  "A": "yonas",
+  "B": "biruk",
+  "better_overall": "tie",
+  "more_natural": "tie",
+  "more_intelligible": "tie",
+  "reason": "Both clips are identical in audio quality, pronunciation, and pacing, resulting in a tie across all metrics."
+ },
+ {
+  "kind": "transcribe",
+  "id": "news",
+  "system": "meron",
+  "hyp": "የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ የዕንስ መመሪያ አወጣ መመሪያው የውጭ ምንዛሪ ግብይትን የሚመለከት ሲሆን ከነገ ጀምሮ ተግባራዊ ይሆናል",
+  "cer": 0.07317073170731707
+ },
+ {
+  "kind": "transcribe",
+  "id": "news",
+  "system": "liya",
+  "hyp": "የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ መመሪያው የውጭ ምንዛሬ ግብይትን የሚመለከት ሲሆን ከነገ ጀምሮ ተግባራዊ ይሆናል",
+  "cer": 0.0
+ },
+ {
+  "kind": "diagnose",
+  "id": "news",
+  "system": "liya",
+  "text": "የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ። መመሪያው የውጭ ምንዛሬ ግብይትን የሚመለከት ሲሆን፣ ከነገ ጀምሮ ተግባራዊ ይሆናል።",
+  "transcript_heard": "የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ። መመሪያው የውጭ ምንዛሬ ግብይትን የሚመለከት ሲሆን፣ ከነገ ጀምሮ ተግባራዊ ይሆናል።",
+  "issues": [],
+  "overall_impression": "The speech is clear, natural, and accurately reflects the provided Amharic text without any notable defects.",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "transcribe",
+  "id": "news",
+  "system": "sara",
+  "hyp": "የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ መመሪያው የውጭ ምንዛሬ ግብይትን የሚመለከት ሲሆን ከነገ ጀምሮ ተግባራዊ ይሆናል",
+  "cer": 0.0
+ },
+ {
+  "kind": "transcribe",
+  "id": "news",
+  "system": "yonas",
+  "hyp": "የኢትዮጵያ ብሔራዊ ባንክ ሳር አዲስ መመሪያ አወጣ መመሪያው የውጭ ምንዛሬ ግብይትን የሚመለከት ሲሆን ከነገ ጀምሮ ተግባራዊ ይሆናል",
+  "cer": 0.024390243902439025
+ },
+ {
+  "kind": "diagnose",
+  "id": "news",
+  "system": "yonas",
+  "text": "የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ። መመሪያው የውጭ ምንዛሬ ግብይትን የሚመለከት ሲሆን፣ ከነገ ጀምሮ ተግባራዊ ይሆናል።",
+  "transcript_heard": "የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ። መመሪያው የውጭ ምንዛሬ ግብይትን የሚመለከት ሲሆን፣ ከነገ ጀምሮ ተግባራዊ ይሆናልል።",
+  "issues": [
+   {
+    "type": "robotic_or_metallic",
+    "text_word": "ይሆናልል።",
+    "heard_as": "ይሆናልል።",
+    "start": "00:09",
+    "end": "00:10",
+    "severity": 1,
+    "description": "The final word has a slightly metallic or synthetic tone."
+   }
+  ],
+  "overall_impression": "The speech is clear and understandable, with correct pronunciation and natural phrasing. Only a slight robotic artifact at the very end reveals it to be synthetic.",
+  "would_a_native_listener_notice_problems": true,
+  "overall": 4
+ },
+ {
+  "kind": "diagnose",
+  "id": "news",
+  "system": "meron",
+  "text": "የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ። መመሪያው የውጭ ምንዛሬ ግብይትን የሚመለከት ሲሆን፣ ከነገ ጀምሮ ተግባራዊ ይሆናል።",
+  "transcript_heard": "የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ መመሪያው የውጭ ምንዛሬ ግብይትን የሚመለከት ሲሆን ከነገ ጀምሮ ተግባራዊ ይሆናል",
+  "issues": [
+   {
+    "type": "unnatural_pause",
+    "text_word": "አወጣ።",
+    "heard_as": "አወጣ",
+    "start": "00:04",
+    "end": "00:05",
+    "severity": 1,
+    "description": "There is a missing brief pause or natural sentence break after the word awəta before continuing."
+   }
+  ],
+  "overall_impression": "The speech is quite clear and natural overall, with good pacing and proper pronunciation. Only minor punctuation phrasing could be slightly smoother.",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 4
+ },
+ {
+  "kind": "diagnose",
+  "id": "news",
+  "system": "sara",
+  "text": "የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ። መመሪያው የውጭ ምንዛሬ ግብይትን የሚመለከት ሲሆን፣ ከነገ ጀምሮ ተግባራዊ ይሆናል።",
+  "transcript_heard": "የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ። መመሪያው የውጭ ምንዛሬ ግብይትን የሚመለከት ሲሆን፣ ከነገ ጀምሮ ተግባራዊ ይሆናል።",
+  "issues": [],
+  "overall_impression": "የድምጽ ቅጂው እጅግ በጣም ግልጽ እና ተፈጥሯዊ ነው። የሰዎች ንግግርን በሚገባ ያስመስላል።",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "transcribe",
+  "id": "news",
+  "system": "biruk",
+  "hyp": "ኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ መመሪያው የውጭ ምንዛሪ ግብይትን የሚመለከት ሲሆን ከነገ ጀምሮ ተግባራዊ ይሆናል",
+  "cer": 0.024390243902439025
+ },
+ {
+  "kind": "diagnose",
+  "id": "news",
+  "system": "biruk",
+  "text": "የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ። መመሪያው የውጭ ምንዛሬ ግብይትን የሚመለከት ሲሆን፣ ከነገ ጀምሮ ተግባራዊ ይሆናል።",
+  "transcript_heard": "የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ። መመሪያው የውጭ ምንዛሬ ግብይትን የሚመለከት ሲሆን፣ ከነገ ጀምሮ ተግባራዊ ይሆናል።",
+  "issues": [],
+  "overall_impression": "The speech is clear, natural, and accurately conveys the text with proper pronunciation and intonation. A native speaker would find it indistinguishable from a professional human reader.",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "transcribe",
+  "id": "news",
+  "system": "dawit",
+  "hyp": "የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ መመሪያው የውጭ ምንዛሪ ግብይትን የሚመለከት ሲሆን ከነገ ጀምሮ ተግባራዊ ይሆናል",
+  "cer": 0.012195121951219513
+ },
+ {
+  "kind": "pair",
+  "id": "news",
+  "ref": "biruk",
+  "other": "selam",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "selam",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip A has an unnatural stutter in the middle of a word and sounds more robotic. Clip B is much smoother, clearer, and closer to natural human intonation."
+ },
+ {
+  "kind": "pair",
+  "id": "news",
+  "ref": "biruk",
+  "other": "selam",
+  "order": "ref_second",
+  "A": "selam",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds more natural with better pacing and fewer robotic artifacts compared to Clip A."
+ },
+ {
+  "kind": "pair",
+  "id": "news",
+  "ref": "biruk",
+  "other": "meron",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "meron",
+  "better_overall": "A",
+  "more_natural": "A",
+  "more_intelligible": "A",
+  "reason": "Clip A sounds much more natural and clear, with better pacing and pronunciation. Clip B has an unnatural elongation at the beginning and sounds more robotic."
+ },
+ {
+  "kind": "diagnose",
+  "id": "news",
+  "system": "dawit",
+  "text": "የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ። መመሪያው የውጭ ምንዛሬ ግብይትን የሚመለከት ሲሆን፣ ከነገ ጀምሮ ተግባራዊ ይሆናል።",
+  "transcript_heard": "የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ። መመሪያው የውጭ ምንዛሬ ግብይትን የሚመለከት ሲሆን፣ ከነገ ጀምሮ ተግባራዊ ይሆናልል።",
+  "issues": [
+   {
+    "type": "wrong_gemination_or_stress",
+    "text_word": "ይሆናልል።",
+    "heard_as": "ይሆናልል።",
+    "start": "00:11",
+    "end": "00:12",
+    "severity": 1,
+    "description": "Slightly unusual intonation or stress on the final word, but still understandable."
+   }
+  ],
+  "overall_impression": "The speech is clear and generally natural, easily understandable to a native speaker. Only a minor final intonation glitch keeps it from being perfect.",
+  "would_a_native_listener_notice_problems": true,
+  "overall": 4
+ },
+ {
+  "kind": "pair",
+  "id": "news",
+  "ref": "biruk",
+  "other": "liya",
+  "order": "ref_second",
+  "A": "liya",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds much more natural with better pacing, accurate pronunciation, and a clearer voice than Clip A, which has robotic artifacts and awkward pausing."
+ },
+ {
+  "kind": "pair",
+  "id": "news",
+  "ref": "biruk",
+  "other": "liya",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "liya",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip A has a very unnatural and robotic rhythm with strange pauses. Clip B sounds much more like a human speaker with proper intonation and phrasing."
+ },
+ {
+  "kind": "pair",
+  "id": "news",
+  "ref": "biruk",
+  "other": "meron",
+  "order": "ref_second",
+  "A": "meron",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip A starts with stuttering and has poor pronunciation quality. Clip B is clear, intelligible, and has much more natural pacing and pronunciation."
+ },
+ {
+  "kind": "pair",
+  "id": "news",
+  "ref": "biruk",
+  "other": "sara",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "sara",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds much more natural and clear, with better pacing and articulation compared to Clip A, which sounds a bit robotic and has an unnatural pause."
+ },
+ {
+  "kind": "pair",
+  "id": "news",
+  "ref": "biruk",
+  "other": "sara",
+  "order": "ref_second",
+  "A": "sara",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds much more natural and clearer than Clip A, which has a weird breathing sound at the beginning and a slightly robotic tone."
+ },
+ {
+  "kind": "pair",
+  "id": "news",
+  "ref": "biruk",
+  "other": "yonas",
+  "order": "ref_second",
+  "A": "yonas",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds much more natural and clear, with better pacing and pronunciation compared to Clip A which has some unnatural pauses and intonation."
+ },
+ {
+  "kind": "pair",
+  "id": "news",
+  "ref": "biruk",
+  "other": "yonas",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "yonas",
+  "better_overall": "A",
+  "more_natural": "A",
+  "more_intelligible": "A",
+  "reason": "Clip A has a much more natural voice cadence, proper pausing, and better pronunciation. Clip B has an unnatural robotic quality and weird pauses."
+ },
+ {
+  "kind": "pair",
+  "id": "news",
+  "ref": "biruk",
+  "other": "dawit",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "dawit",
+  "better_overall": "A",
+  "more_natural": "A",
+  "more_intelligible": "A",
+  "reason": "Clip A has much better pacing and pronunciation, whereas Clip B sounds very robotic, choppy, and has unnatural pauses."
+ },
+ {
+  "kind": "pair",
+  "id": "news",
+  "ref": "biruk",
+  "other": "dawit",
+  "order": "ref_second",
+  "A": "dawit",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip A has an unnatural pause after 'መመሪያ' and mispronounces 'የውጭ' as 'የውስጥ'. Clip B is much more natural and intelligible."
+ },
+ {
+  "kind": "rank",
+  "id": "news",
+  "rep": 1,
+  "order": [
+   "dawit",
+   "selam",
+   "liya",
+   "meron",
+   "yonas",
+   "biruk",
+   "sara"
+  ],
+  "labels": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E",
+   "F",
+   "G"
+  ],
+  "ranking_overall": [
+   "dawit",
+   "yonas",
+   "biruk",
+   "selam",
+   "sara",
+   "meron",
+   "liya"
+  ],
+  "ranking_naturalness": [
+   "dawit",
+   "yonas",
+   "biruk",
+   "selam",
+   "sara",
+   "meron",
+   "liya"
+  ],
+  "sounds_human": [
+   "dawit"
+  ],
+  "notes": "Clip A is the clear winner, exhibiting proper intonation and human-like flow. Clips E and F are also decent. The rest sound somewhat robotic or unnatural, with Clip C being the worst."
+ },
+ {
+  "kind": "rank",
+  "id": "news",
+  "rep": 0,
+  "order": [
+   "sara",
+   "biruk",
+   "dawit",
+   "yonas",
+   "selam",
+   "meron",
+   "liya"
+  ],
+  "labels": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E",
+   "F",
+   "G"
+  ],
+  "ranking_overall": [
+   "yonas",
+   "liya",
+   "dawit",
+   "selam",
+   "biruk",
+   "sara",
+   "meron"
+  ],
+  "ranking_naturalness": [
+   "yonas",
+   "liya",
+   "dawit",
+   "selam",
+   "biruk",
+   "sara",
+   "meron"
+  ],
+  "sounds_human": [
+   "yonas",
+   "liya"
+  ],
+  "notes": "Clips D and G sound the most natural, closely resembling a professional human speaker. Clips A, B, C, E, and F exhibit robotic intonation, unnatural pauses, or artifacts of synthetic generation, with F being the worst due to unnatural stretching of sounds and heavy artifacts."
+ },
+ {
+  "kind": "transcribe",
+  "id": "numbers_dates",
+  "system": "selam",
+  "hyp": "ዛሬ ጥቅምት ፲፭ ቀን ፲፱፻፺፱ ዓመተ ምህረት ነው ዶክተር አበበ በትምህርት ቤቱ ፩ ፲፭፻ ፶ ብር ለገሱ ይሄም ካአምናው በ፳፭ በመቶ ብልጫ አለው",
+  "cer": 0.4520547945205479
+ },
+ {
+  "kind": "diagnose",
+  "id": "numbers_dates",
+  "system": "meron",
+  "text": "ዛሬ ጥቅምት 15 ቀን 2019 ዓ.ም. ነው። ዶ/ር አበበ በት/ቤቱ 1250 ብር ለገሱ፤ ይህም ከአምናው በ25% ብልጫ አለው።",
+  "transcript_heard": "ዛሬ ጥቅምት 15 ቀን 2019 ዓመተ ምህረት ነው። ዶክተር አበበ በትምህርት ቤቱ 1250 ብር ለገሱ፤ ይህም ከአምናው በ25 በመቶ ብልጫ አለው።",
+  "issues": [
+   {
+    "type": "wrong_number_or_abbreviation_reading",
+    "text_word": "2019 ዓ.ም.",
+    "heard_as": "2019 ዓመተ ምህረት",
+    "start": "00:03",
+    "end": "00:06",
+    "severity": 1,
+    "description": "The abbreviation 'ዓ.ም.' was expanded to the full words 'ዓመተ ምህረት', which is acceptable but deviates slightly from a direct reading."
+   },
+   {
+    "type": "wrong_number_or_abbreviation_reading",
+    "text_word": "ዶ/ር",
+    "heard_as": "ዶክተር",
+    "start": "00:06",
+    "end": "00:07",
+    "severity": 1,
+    "description": "The abbreviation 'ዶ/ር' was expanded and read as the full word 'ዶክተር'."
+   },
+   {
+    "type": "wrong_number_or_abbreviation_reading",
+    "text_word": "25%",
+    "heard_as": "25 በመቶ",
+    "start": "00:13",
+    "end": "00:15",
+    "severity": 1,
+    "description": "The percentage sign '%' was read out as the full words 'በመቶ'."
+   }
+  ],
+  "overall_impression": "The speech is very clear and natural, sounding like a professional announcer. The expansions of abbreviations and symbols into full words are standard and natural.",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "diagnose",
+  "id": "numbers_dates",
+  "system": "selam",
+  "text": "ዛሬ ጥቅምት 15 ቀን 2019 ዓ.ም. ነው። ዶ/ር አበበ በት/ቤቱ 1250 ብር ለገሱ፤ ይህም ከአምናው በ25% ብልጫ አለው።",
+  "transcript_heard": "ዛሬ ጥቅምት 15 ቀን 2019 ዓ.ም. ነው። ዶ/ር አበበ በት/ቤቱ 1250 ብር ለገሱ፤ ይህም ከአምናው በ25% ብልጫ አለው።",
+  "issues": [],
+  "overall_impression": "የድምጽ ቅጂው እጅግ በጣም ግልጽ እና ተፈጥሯዊ ነው። ምንም አይነት ስህተት የለውም፤ ልክ እንደ ተወለደ ቋንቋ ተናጋሪ ይነበባል።",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "diagnose",
+  "id": "numbers_dates",
+  "system": "liya",
+  "text": "ዛሬ ጥቅምት 15 ቀን 2019 ዓ.ም. ነው። ዶ/ር አበበ በት/ቤቱ 1250 ብር ለገሱ፤ ይህም ከአምናው በ25% ብልጫ አለው።",
+  "transcript_heard": "ዛሬ ጥቅምት 15 ቀን 2019 ዓ.ም. ነው። ዶ/ር አበበ በት/ቤቱ 1250 ብር ለገሱ፤ ይህም ከአምናው በ25% ብልጫ አለው።",
+  "issues": [],
+  "overall_impression": "የድምጽ አወጣጡ ግልጽ እና ትክክለኛ ነው። ቃላቱ እና ቁጥሮቹ በጥሩ ሁኔታ ተነብበዋል።",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "transcribe",
+  "id": "numbers_dates",
+  "system": "meron",
+  "hyp": "ዛሬ ጥቅምት አስራ አምስት አምስት ቀን ሁለት ሺህ አስራ ዘጠኝ ዓመተ ምህረት ነው ዶክተር አበበ በትምህርት ቤቱ አንድ ሺህ ሁለት መቶ ሃምሳ ብር ለገሰሱ ይህም ከአምናው በሀያ አምስት በምቶ ብልጫ አለው",
+  "cer": 0.9178082191780822
+ },
+ {
+  "kind": "transcribe",
+  "id": "numbers_dates",
+  "system": "sara",
+  "hyp": "ዛሬ ጥቅምት አስራ አምስት ቀን ሁለት ሺህ አስራ ዘጠኝ ዓመተ ምህረት ነው ዶክተር አበበ በትምህርት ቤቱ አንድ ሺህ ሁለት መቶ ሃምሳ ብር ለገሱ ይህም ከአምናው በሀያ አምስት በመቶ ብልጫ አለው",
+  "cer": 0.8356164383561644
+ },
+ {
+  "kind": "diagnose",
+  "id": "numbers_dates",
+  "system": "sara",
+  "text": "ዛሬ ጥቅምት 15 ቀን 2019 ዓ.ም. ነው። ዶ/ር አበበ በት/ቤቱ 1250 ብር ለገሱ፤ ይህም ከአምናው በ25% ብልጫ አለው።",
+  "transcript_heard": "ዛሬ ጥቅምት 15 ቀን 2019 ዓመተ ምህረት ነው። ዶ/ር አበበ በትምህርት ቤቱ 1250 ብር ለገሱ፤ ይህም ከአምናው በ25 በመቶ ብልጫ አለው።",
+  "issues": [
+   {
+    "type": "wrong_number_or_abbreviation_reading",
+    "text_word": "2019 ዓ.ም.",
+    "heard_as": "2019 ዓመተ ምህረት",
+    "start": "00:03",
+    "end": "00:06",
+    "severity": 1,
+    "description": "The abbreviation ዓ.ም. was expanded out to ዓመተ ምህረት instead of reading it as the abbreviation."
+   },
+   {
+    "type": "wrong_number_or_abbreviation_reading",
+    "text_word": "25%",
+    "heard_as": "25 በመቶ",
+    "start": "00:14",
+    "end": "00:15",
+    "severity": 1,
+    "description": "The percentage sign was read as በመቶ rather than percentage."
+   }
+  ],
+  "overall_impression": "The speaker read the text clearly and naturally, though abbreviations and symbols were expanded into full words. Overall, it sounds very much like a native human reader.",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "transcribe",
+  "id": "numbers_dates",
+  "system": "liya",
+  "hyp": "ዛሬ ጥቅምት አስራ አምስት ቀን ሁለት ሺህ አስራ ዘጠኝ ዓመተ ምህረት ነው ዶክተር አበበ በትምህርት ቤቱ አንድ ሺህ ሁለት መቶ ሃምሳ ብር ለገሱ ይህም ከአምናው በሃያ አምስት በመቶ ብልጫ አለው",
+  "cer": 0.8356164383561644
+ },
+ {
+  "kind": "transcribe",
+  "id": "numbers_dates",
+  "system": "yonas",
+  "hyp": "ዛሬ ጥቅምት አስራ አምስት ቀን አምስት ቀን ሁለት ሺህ አስራ ዘጠኝ ዓመተ ምህረት ነው ዶክተር አበበ በትምህርት ቤቱ አንድ ሺህ ሁለት መቶ ሃምሳ ብር ለገሱ ይህም ካአምላው በሀያ አምስት በመቶ ብልጫ አለው",
+  "cer": 0.9726027397260274
+ },
+ {
+  "kind": "diagnose",
+  "id": "numbers_dates",
+  "system": "yonas",
+  "text": "ዛሬ ጥቅምት 15 ቀን 2019 ዓ.ም. ነው። ዶ/ር አበበ በት/ቤቱ 1250 ብር ለገሱ፤ ይህም ከአምናው በ25% ብልጫ አለው።",
+  "transcript_heard": "ዛሬ ጥቅምት 15 ቀን አምስት ቀን ሁለት ሺህ አስራ ዘጠኝ ዓመተ ምህረት ነው። ዶክተር አበበ በትምህርት ቤቱ 1ሺህ 2መቶ 50 ብር ለገሱ፤ ይህም ከአምናው በ25 በመቶ ብልጫ አለው።",
+  "issues": [
+   {
+    "type": "repeated_or_stutter",
+    "text_word": "15 ቀን",
+    "heard_as": "አምስት ቀን",
+    "start": "00:01",
+    "end": "00:03",
+    "severity": 3,
+    "description": "The date number 15 is incorrectly read as '5' and the word 'ቀን' is repeated redundantly."
+   },
+   {
+    "type": "wrong_number_or_abbreviation_reading",
+    "text_word": "ዶ/ር",
+    "heard_as": "ዶክተር",
+    "start": "00:06",
+    "end": "00:06",
+    "severity": 1,
+    "description": "The abbreviation ዶ/ር was expanded to ዶክተር, which is acceptable in reading but diverges slightly from direct reading."
+   }
+  ],
+  "overall_impression": "The speech is mostly clear and natural, but contains a notable error repeating and misreading the date part of the sentence. A native listener would easily notice the unnatural stutter and the wrong number read.",
+  "would_a_native_listener_notice_problems": true,
+  "overall": 3
+ },
+ {
+  "kind": "transcribe",
+  "id": "numbers_dates",
+  "system": "biruk",
+  "hyp": "ዛሬ ጥቅምት አስራ አምስት ቀን ሁለት ሺህ አስራ ዘጠኝ ዓመተ ምህረት ነው ዶክተር ዶክተር አበበ በትምህርት ቤቱ አንድ ሺህ ሁለት መቶ ሃምሳ ብር ለገሱ ይህም ከአምናው በሃያ አምስት በመቶ ብልጫ አለው",
+  "cer": 0.8904109589041096
+ },
+ {
+  "kind": "diagnose",
+  "id": "numbers_dates",
+  "system": "biruk",
+  "text": "ዛሬ ጥቅምት 15 ቀን 2019 ዓ.ም. ነው። ዶ/ር አበበ በት/ቤቱ 1250 ብር ለገሱ፤ ይህም ከአምናው በ25% ብልጫ አለው።",
+  "transcript_heard": "ዛሬ ጥቅምት 15 ቀን 2019 ዓ.ም. ነው። ዶ/ር አበበ በት/ቤቱ 1250 ብር ለገሱ፤ ይህም ከአምናው በ25% ብልጫ አለው።",
+  "issues": [
+   {
+    "type": "wrong_number_or_abbreviation_reading",
+    "text_word": "ዶ/ር",
+    "heard_as": "ዶክተር",
+    "start": "00:06.0",
+    "end": "00:07.0",
+    "severity": 1,
+    "description": "The abbreviation ዶ/ር was expanded to its full form ዶክተር, which is acceptable but different from reading the raw characters."
+   }
+  ],
+  "overall_impression": "The speech is clear and natural, closely resembling a professional human reader. A native listener would easily understand the entire message without any strain.",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "diagnose",
+  "id": "numbers_dates",
+  "system": "dawit",
+  "text": "ዛሬ ጥቅምት 15 ቀን 2019 ዓ.ም. ነው። ዶ/ር አበበ በት/ቤቱ 1250 ብር ለገሱ፤ ይህም ከአምናው በ25% ብልጫ አለው።",
+  "transcript_heard": "ዛሬ ጥቅምት 15 ቀን 2019 ዓ.ም. ነው። ዶ/ር አበበ በትምህርት ቤቱ 1ሺህ 250 ብር ለገሱ፤ ይህም ከአምናው በ25% ብልጫ አለው።",
+  "issues": [],
+  "overall_impression": "አነጋገሩ በጣም ግልጽና ተፈጥሯዊ ነው። ምንም አይነት ስህተት የለበትም፤ ልክ እንደ እውነተኛ ተናጋሪ ይነበባል።",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "transcribe",
+  "id": "numbers_dates",
+  "system": "dawit",
+  "hyp": "ዛሬ ጥቅምት አስራ አምስት ቀን ሁለት ሺህ አስራ ዘጠኝ ዓመተ ምህረት ነው ዶክተር አበበ በትምህርት ቤቱ አንድ ሺህ ሁለት መቶ ሃምሳ ብር ለገሱ ይህም ከአምናው በሀያ አምስት በመቶ ብልጫ አለው",
+  "cer": 0.8356164383561644
+ },
+ {
+  "kind": "pair",
+  "id": "numbers_dates",
+  "ref": "biruk",
+  "other": "selam",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "selam",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B is much more natural and has better prosody and intonation compared to Clip A."
+ },
+ {
+  "kind": "pair",
+  "id": "numbers_dates",
+  "ref": "biruk",
+  "other": "selam",
+  "order": "ref_second",
+  "A": "selam",
+  "B": "biruk",
+  "better_overall": "A",
+  "more_natural": "A",
+  "more_intelligible": "A",
+  "reason": "Clip A is clearer, has better intonation and fewer unnatural pauses compared to Clip B."
+ },
+ {
+  "kind": "pair",
+  "id": "numbers_dates",
+  "ref": "biruk",
+  "other": "meron",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "meron",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds much more natural and has better intonation and pacing compared to Clip A, which sounds robotic and has awkward pauses."
+ },
+ {
+  "kind": "pair",
+  "id": "numbers_dates",
+  "ref": "biruk",
+  "other": "meron",
+  "order": "ref_second",
+  "A": "meron",
+  "B": "biruk",
+  "better_overall": "A",
+  "more_natural": "A",
+  "more_intelligible": "A",
+  "reason": "Clip A is better in terms of naturalness, pacing, and overall pronunciation of numbers compared to clip B, which stutters on 'doctor'."
+ },
+ {
+  "kind": "pair",
+  "id": "numbers_dates",
+  "ref": "biruk",
+  "other": "liya",
+  "order": "ref_second",
+  "A": "liya",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B is much more natural and has better intonation and pauses, whereas Clip A reads the text in a very robotic and unnatural manner."
+ },
+ {
+  "kind": "pair",
+  "id": "numbers_dates",
+  "ref": "biruk",
+  "other": "sara",
+  "order": "ref_second",
+  "A": "sara",
+  "B": "biruk",
+  "better_overall": "A",
+  "more_natural": "A",
+  "more_intelligible": "A",
+  "reason": "Clip A is clearer, sounds more natural, and has better pacing compared to Clip B, which has awkward pauses and unnatural intonation."
+ },
+ {
+  "kind": "pair",
+  "id": "numbers_dates",
+  "ref": "biruk",
+  "other": "sara",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "sara",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip A has an unnatural stuttering effect during the reading of the year. Clip B reads the entire text smoothly and naturally."
+ },
+ {
+  "kind": "pair",
+  "id": "numbers_dates",
+  "ref": "biruk",
+  "other": "liya",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "liya",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip A has unnatural phrasing and awkward pauses, mispronouncing parts of the text. Clip B is much more natural and clear, with better intonation and accurate pronunciation."
+ },
+ {
+  "kind": "pair",
+  "id": "numbers_dates",
+  "ref": "biruk",
+  "other": "dawit",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "dawit",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B reads the text much more smoothly and correctly with a better rhythm, whereas Clip A stumbles on the abbreviation 'ዶ/ር' and has an unnatural pause."
+ },
+ {
+  "kind": "pair",
+  "id": "numbers_dates",
+  "ref": "biruk",
+  "other": "yonas",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "yonas",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip A has a strange repetition of the word 'ዶ/ር' and stumbles. Clip B reads the text correctly and has a better flow."
+ },
+ {
+  "kind": "pair",
+  "id": "numbers_dates",
+  "ref": "biruk",
+  "other": "yonas",
+  "order": "ref_second",
+  "A": "yonas",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds much more natural and has better prosody and pacing compared to Clip A, which sounds a bit mechanical and stilted in places."
+ },
+ {
+  "kind": "pair",
+  "id": "numbers_dates",
+  "ref": "biruk",
+  "other": "dawit",
+  "order": "ref_second",
+  "A": "dawit",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds more natural and has better intonation compared to Clip A, which sounds a bit more robotic and unnatural."
+ },
+ {
+  "kind": "rank",
+  "id": "numbers_dates",
+  "rep": 1,
+  "order": [
+   "biruk",
+   "liya",
+   "dawit",
+   "sara",
+   "selam",
+   "yonas",
+   "meron"
+  ],
+  "labels": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E",
+   "F",
+   "G"
+  ],
+  "ranking_overall": [
+   "sara",
+   "biruk",
+   "selam",
+   "meron",
+   "dawit",
+   "liya",
+   "yonas"
+  ],
+  "ranking_naturalness": [
+   "sara",
+   "biruk",
+   "selam",
+   "meron",
+   "dawit",
+   "liya",
+   "yonas"
+  ],
+  "sounds_human": [
+   "sara",
+   "biruk"
+  ],
+  "notes": "Clips D and A sound the most natural with appropriate pacing and pronunciation. Clips E, G, and C are fair, but have slight unnatural pauses or robotic intonation. Clips B and F are very poor and robotic."
+ },
+ {
+  "kind": "transcribe",
+  "id": "story",
+  "system": "selam",
+  "hyp": "ድሮ ድሮ በአንድ ትንሽ መንደር ውስጥ አንድ ብልህ አዛውንት ይኖሩ ነበር ልጆቹ በየቀኑ ማታ ማታ ተሰብሰበው ተረት ያደምጡ ነበር",
+  "cer": 0.025
+ },
+ {
+  "kind": "transcribe",
+  "id": "story",
+  "system": "meron",
+  "hyp": "ድሮ ድሮ በአንድ ትንሽ ትንሽ መንደር ውስጥ አንድ ብልሀተኛ ይኖሩ ነበር ልጆቹ በየቀኑ ማታ ማታ ተሰብስበው ተረት ያዳምጡ ነበር",
+  "cer": 0.1375
+ },
+ {
+  "kind": "rank",
+  "id": "numbers_dates",
+  "rep": 0,
+  "order": [
+   "meron",
+   "liya",
+   "sara",
+   "biruk",
+   "selam",
+   "yonas",
+   "dawit"
+  ],
+  "labels": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E",
+   "F",
+   "G"
+  ],
+  "ranking_overall": [
+   "meron",
+   "selam",
+   "liya",
+   "sara",
+   "dawit",
+   "yonas",
+   "biruk"
+  ],
+  "ranking_naturalness": [
+   "meron",
+   "selam",
+   "liya",
+   "sara",
+   "dawit",
+   "yonas",
+   "biruk"
+  ],
+  "sounds_human": [
+   "meron"
+  ],
+  "notes": "Speaker A has the most natural intonation, correct pacing, and appropriate pronunciation of numbers and abbreviations. Speaker E is also quite good, though slightly less natural. Speakers B, C, G, F, and D sound robotic, choppy, or mispronounce key phrases."
+ },
+ {
+  "kind": "transcribe",
+  "id": "story",
+  "system": "liya",
+  "hyp": "ድሮ ድሮ በአንድ ትንሽ መንደር ውስጥ አንድ ብልክ አዛውንት ይኖሩ ነበር ልጆቹ በየቀኑ ማታ ማታ ተሰብስበው ተረት ያዳምጡ ነበር",
+  "cer": 0.0125
+ },
+ {
+  "kind": "diagnose",
+  "id": "story",
+  "system": "meron",
+  "text": "ድሮ ድሮ በአንድ ትንሽ መንደር ውስጥ አንድ ብልህ አዛውንት ይኖሩ ነበር። ልጆቹ በየቀኑ ማታ ማታ ተሰብስበው ተረት ያዳምጡ ነበር።",
+  "transcript_heard": "ድሮ ድሮ በአንድ ትንሽ ትንሽ መንደር ውስጥ አንድ ብልህ አዛውንት ይኖሩ ነበር። ልጆቹ በየቀኑ ማታ ማታ ተሰብስበው ተረት ያዳምጡ ነበር።",
+  "issues": [
+   {
+    "type": "repeated_or_stutter",
+    "text_word": "ትንሽ",
+    "heard_as": "ትንሽ ትንሽ",
+    "start": "00:02.5",
+    "end": "00:03.5",
+    "severity": 2,
+    "description": "The word ትንሽ is mistakenly repeated twice."
+   },
+   {
+    "type": "repeated_or_stutter",
+    "text_word": "ማታ",
+    "heard_as": "ማታ ማታ",
+    "start": "00:07.1",
+    "end": "00:08.5",
+    "severity": 2,
+    "description": "The word ማታ is mistakenly repeated twice."
+   }
+  ],
+  "overall_impression": "The speaker reads fluently and with a natural voice, but makes two noticeable word repetitions that disrupt the accuracy of the text. Otherwise, the pronunciation and intonation are very good.",
+  "would_a_native_listener_notice_problems": true,
+  "overall": 3
+ },
+ {
+  "kind": "diagnose",
+  "id": "story",
+  "system": "selam",
+  "text": "ድሮ ድሮ በአንድ ትንሽ መንደር ውስጥ አንድ ብልህ አዛውንት ይኖሩ ነበር። ልጆቹ በየቀኑ ማታ ማታ ተሰብስበው ተረት ያዳምጡ ነበር።",
+  "transcript_heard": "ድሮ ድሮ በአንድ ትንሽ መንደር ውስጥ አንድ ብልህ አዛውንት ይኖሩ ነበር። ልጆቹ በየቀኑ ማታ ማታ ተሰብስበው ተረት ያዳምጡ ነበር።",
+  "issues": [],
+  "overall_impression": "ድምፁ በጣም ጥርት ያለ እና ከተፈጥሯዊ የሰው ልጅ ንግግር ፈጽሞ የማይለይ ነው። ቃላቱ በትክክል እና በተገቢው አነጋገር ተነቧል።",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "diagnose",
+  "id": "story",
+  "system": "sara",
+  "text": "ድሮ ድሮ በአንድ ትንሽ መንደር ውስጥ አንድ ብልህ አዛውንት ይኖሩ ነበር። ልጆቹ በየቀኑ ማታ ማታ ተሰብስበው ተረት ያዳምጡ ነበር።",
+  "transcript_heard": "ድሮ ድሮ በአንድ ትንሽ መንደር ውስጥ ውስጥ አንድ ብልህ አዛውንት ይኖሩ ነበር። ልጆቹ በየቀኑ ማታ ማታ ተሰብስበው ተረት ያዳምጡ ነበር።",
+  "issues": [
+   {
+    "type": "repeated_or_stutter",
+    "text_word": "ውስጥ",
+    "heard_as": "ውስጥ ውስጥ",
+    "start": "00:02",
+    "end": "00:03",
+    "severity": 2,
+    "description": "The word 'ውስጥ' was unnecessarily repeated by the speaker."
+   }
+  ],
+  "overall_impression": "The speech is mostly clear and natural, but contains a noticeable repetition of a word which disrupts the flow. Otherwise, the pronunciation and intonation are good.",
+  "would_a_native_listener_notice_problems": true,
+  "overall": 4
+ },
+ {
+  "kind": "transcribe",
+  "id": "story",
+  "system": "sara",
+  "hyp": "ድሮ ድሮ በአንድ ትንሽ መንደር ውስጥ ውስጥ አንድ ብልሃተኛውን ቲኖሩ ነበር ልጆቹ በየቀኑ ማታ ማታ ተሰብሰበው ተረት ያዳምጡ ነበር",
+  "cer": 0.1375
+ },
+ {
+  "kind": "diagnose",
+  "id": "story",
+  "system": "yonas",
+  "text": "ድሮ ድሮ በአንድ ትንሽ መንደር ውስጥ አንድ ብልህ አዛውንት ይኖሩ ነበር። ልጆቹ በየቀኑ ማታ ማታ ተሰብስበው ተረት ያዳምጡ ነበር።",
+  "transcript_heard": "ድሮ ድሮ በአንድ ትንሽ መንደር ውስጥ አንድ ብልህ አዛውንት ይኖሩ ነበር። ልጆቹ በየቀኑ ማታ ማታ ተሰብስበው ተረት ያዳምጡ ነበር።",
+  "issues": [],
+  "overall_impression": "አንባቢው ቃላቱን በግልጽ እና በትክክል አንብቧል። ድምፁ እና የአነባበብ ፍጥነቱ ተፈጥሯዊ ነው።",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "transcribe",
+  "id": "story",
+  "system": "biruk",
+  "hyp": "ድሮድሮ በአንድ ትንሽ መንደር ውስጥ አንድ ብልህ አዛውንት ይኖሩ ነበር ልጆቹ በየቀኑ ማታ ማታ ተሰብሰበው ተረት ያዳምጡ ነበር",
+  "cer": 0.025
+ },
+ {
+  "kind": "diagnose",
+  "id": "story",
+  "system": "liya",
+  "text": "ድሮ ድሮ በአንድ ትንሽ መንደር ውስጥ አንድ ብልህ አዛውንት ይኖሩ ነበር። ልጆቹ በየቀኑ ማታ ማታ ተሰብስበው ተረት ያዳምጡ ነበር።",
+  "transcript_heard": "ድሮ ድሮ በአንድ ትንሽ መንደር ውስጥ አንድ ብልህ አዛውንት ይኖሩ ነበር። ልጆቹ በየቀኑ ማታ ማታ ተሰብስበው ተረት ያዳምጡ ነበር።",
+  "issues": [],
+  "overall_impression": "ድምጹ እጅግ በጣም ተፈጥሯዊ እና ግልጽ ነው። አንድ እውነተኛ ሰው የሚያነብው ይመስላል።",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "transcribe",
+  "id": "story",
+  "system": "yonas",
+  "hyp": "ድሮ ድሮ በአንድ ትንሽ መንደር ውስጥ አንድ ብህሉ አዛውንት ይኖሩ ነበር ልጆቹ በየቀኑ ማታ ማታ ተሰብስበው ተረት ያዳምጡ ነበር",
+  "cer": 0.025
+ },
+ {
+  "kind": "diagnose",
+  "id": "story",
+  "system": "biruk",
+  "text": "ድሮ ድሮ በአንድ ትንሽ መንደር ውስጥ አንድ ብልህ አዛውንት ይኖሩ ነበር። ልጆቹ በየቀኑ ማታ ማታ ተሰብስበው ተረት ያዳምጡ ነበር።",
+  "transcript_heard": "ድሮ ድሮ በአንድ ትንሽ መንደር ውስጥ አንድ ብልህ አዛውንት ይኖሩ ነበር። ልጆቹ በየቀኑ ማታ ማታ ተሰብስበው ተረት ያዳምጡ ነበር።",
+  "issues": [],
+  "overall_impression": "The speech sounds clear and natural, with accurate pronunciation and good intonation. A native listener would easily understand and enjoy the reading.",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "pair",
+  "id": "story",
+  "ref": "biruk",
+  "other": "selam",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "selam",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds much more natural and has better pacing compared to Clip A, which sounds robotic and stumbles over words."
+ },
+ {
+  "kind": "transcribe",
+  "id": "story",
+  "system": "dawit",
+  "hyp": "ድሮ ድሮ በአንድ ትንሽ መደር ውስጥ አንድ ብልክ አዛውንት ይኖሩ ነበር ልጆቹ በየቀኑ ማታ ማታ ተሰብሰበው ተረት ያዳምጡ ነበር",
+  "cer": 0.0375
+ },
+ {
+  "kind": "pair",
+  "id": "story",
+  "ref": "biruk",
+  "other": "selam",
+  "order": "ref_second",
+  "A": "selam",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds much more natural and clear, with better pacing and pronunciation compared to Clip A which has robotic artifacts and awkward pausing."
+ },
+ {
+  "kind": "pair",
+  "id": "story",
+  "ref": "biruk",
+  "other": "meron",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "meron",
+  "better_overall": "A",
+  "more_natural": "A",
+  "more_intelligible": "A",
+  "reason": "Clip A is much better overall with natural pacing and correct pronunciation. Clip B stutters significantly on the word 'ትንሽ' and sounds unnatural."
+ },
+ {
+  "kind": "diagnose",
+  "id": "story",
+  "system": "dawit",
+  "text": "ድሮ ድሮ በአንድ ትንሽ መንደር ውስጥ አንድ ብልህ አዛውንት ይኖሩ ነበር። ልጆቹ በየቀኑ ማታ ማታ ተሰብስበው ተረት ያዳምጡ ነበር።",
+  "transcript_heard": "ድሮ ድሮ በአንድ ትንሽ መንደር ውስጥ አንድ ብልህ አዛውንት ይኖሩ ነበር። ልጆቹ በየቀኑ ማታ ማታ ተሰብስበው ተረት ያዳምጡ ነበር።",
+  "issues": [],
+  "overall_impression": "The speech is clear and natural, accurately reflecting the rhythm and pronunciation of a native speaker. The intonation is appropriate and pleasant to listen to.",
+  "would_a_native_listener_notice_problems": false,
+  "overall": 5
+ },
+ {
+  "kind": "pair",
+  "id": "story",
+  "ref": "biruk",
+  "other": "liya",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "liya",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B has a much more natural rhythm, proper pauses, and better intonation compared to Clip A, which sounds a bit more robotic and unnatural."
+ },
+ {
+  "kind": "pair",
+  "id": "story",
+  "ref": "biruk",
+  "other": "meron",
+  "order": "ref_second",
+  "A": "meron",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds much more natural with better phrasing and pronunciation, whereas Clip A stutters and has awkward pauses."
+ },
+ {
+  "kind": "pair",
+  "id": "story",
+  "ref": "biruk",
+  "other": "sara",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "sara",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds much more natural with better pacing, rhythm, and intonation, whereas Clip A is very robotic and has unnatural pauses and stuttering."
+ },
+ {
+  "kind": "pair",
+  "id": "story",
+  "ref": "biruk",
+  "other": "sara",
+  "order": "ref_second",
+  "A": "sara",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds much more natural and has better intonation and rhythm compared to Clip A, which sounds a bit robotic and choppy."
+ },
+ {
+  "kind": "pair",
+  "id": "story",
+  "ref": "biruk",
+  "other": "liya",
+  "order": "ref_second",
+  "A": "liya",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds much more natural with better pacing, pronunciation, and intonation, whereas Clip A sounds robotic and unnatural."
+ },
+ {
+  "kind": "pair",
+  "id": "story",
+  "ref": "biruk",
+  "other": "yonas",
+  "order": "ref_second",
+  "A": "yonas",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds slightly more natural and fluent with better pacing compared to Clip A."
+ },
+ {
+  "kind": "pair",
+  "id": "story",
+  "ref": "biruk",
+  "other": "yonas",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "yonas",
+  "better_overall": "tie",
+  "more_natural": "tie",
+  "more_intelligible": "tie",
+  "reason": "Both clips sound identical in terms of quality, naturalness, and intelligibility."
+ },
+ {
+  "kind": "pair",
+  "id": "story",
+  "ref": "biruk",
+  "other": "dawit",
+  "order": "ref_first",
+  "A": "biruk",
+  "B": "dawit",
+  "better_overall": "A",
+  "more_natural": "A",
+  "more_intelligible": "A",
+  "reason": "Clip A has a more natural flow and better pacing compared to Clip B, which sounds a bit more disjointed."
+ },
+ {
+  "kind": "rank",
+  "id": "story",
+  "rep": 0,
+  "order": [
+   "selam",
+   "sara",
+   "liya",
+   "biruk",
+   "dawit",
+   "meron",
+   "yonas"
+  ],
+  "labels": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E",
+   "F",
+   "G"
+  ],
+  "ranking_overall": [
+   "biruk",
+   "yonas",
+   "dawit",
+   "selam",
+   "sara",
+   "liya",
+   "meron"
+  ],
+  "ranking_naturalness": [
+   "biruk",
+   "yonas",
+   "dawit",
+   "selam",
+   "sara",
+   "liya",
+   "meron"
+  ],
+  "sounds_human": [
+   "biruk"
+  ],
+  "notes": "Clip D is the only one that sounds natural and fluent, with correct prosody and intonation. Clips G and E are acceptable but have minor robotic artifacts. Clips A, B, and C have unnatural pacing or pronunciation. Clip F stumbles and repeats words in a very unnatural way."
+ },
+ {
+  "kind": "rank",
+  "id": "story",
+  "rep": 1,
+  "order": [
+   "yonas",
+   "meron",
+   "liya",
+   "dawit",
+   "biruk",
+   "selam",
+   "sara"
+  ],
+  "labels": [
+   "A",
+   "B",
+   "C",
+   "D",
+   "E",
+   "F",
+   "G"
+  ],
+  "ranking_overall": [
+   "yonas",
+   "selam",
+   "biruk",
+   "liya",
+   "meron",
+   "sara",
+   "dawit"
+  ],
+  "ranking_naturalness": [
+   "yonas",
+   "selam",
+   "biruk",
+   "liya",
+   "meron",
+   "sara",
+   "dawit"
+  ],
+  "sounds_human": [
+   "yonas",
+   "selam"
+  ],
+  "notes": "Clip A sounds the most natural with appropriate phrasing, tone, and pacing. Clips F and E are also decent. Clips D, G, and B sound increasingly robotic or awkward in pacing and intonation."
+ },
+ {
+  "kind": "pair",
+  "id": "story",
+  "ref": "biruk",
+  "other": "dawit",
+  "order": "ref_second",
+  "A": "dawit",
+  "B": "biruk",
+  "better_overall": "B",
+  "more_natural": "B",
+  "more_intelligible": "B",
+  "reason": "Clip B sounds much more natural with better intonation and fewer artifacts compared to Clip A, which has an unnatural robotic cadence."
+ }
+]
