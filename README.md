@@ -123,6 +123,9 @@ truncations. Delivery was then calibrated to Addis Voice 2's calm pace
 (5.5 syllables/s, natural phrase pauses) and the voices re-cast by measurement;
 the full diagnosis and every number are in [DIAGNOSIS.md](DIAGNOSIS.md).
 
+What the literature says about Amharic gemination / epenthesis, OmniVoice-class
+models and audio-LLM judges, with a ranked plan: [RESEARCH.md](RESEARCH.md).
+
 A second, independent "ear": `benchmark/gemini_judge.py` has a Gemini audio
 model transcribe, rate, A/B-compare (both orders) and rank all systems blind;
 see [benchmark/GEMINI_JUDGE.md](benchmark/GEMINI_JUDGE.md).
