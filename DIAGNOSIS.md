@@ -163,5 +163,10 @@ parameters the fixes below target.
    4–8 kHz deficit is intrinsic to every open Amharic checkpoint, the EQ did
    not move any predicted-quality metric, and Addis Voice 2 is equally
    band-limited, so this is not what listeners react to.
-5. Final verification at the shipped defaults: see the "Final" rows in
-   BENCHMARK.md once `benchmark/diag/out/final` and `addis_final` complete.
+5. **Final verification at the shipped defaults** (`benchmark/diag/out/final`,
+   `addis_final`): 40 unseen sentences — CER 2.5 %, WER 10.7 %, UTMOS 3.30,
+   DNSMOS 3.31, 5.5 syl/s; Addis prompts — CER 3.8 % vs 5.6 % (Addis Voice 2),
+   WER 12.8 % vs 17.1 %, better on 59 prompts, UTMOS 3.09 vs 3.21.
+6. **Remaining gap** is predicted naturalness/timbre (UTMOS −0.12 vs Addis
+   Voice 2 on their prompts). It is not reachable by inference settings; it
+   needs a cleaner, full-band Amharic training corpus for the acoustic model.

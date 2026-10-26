@@ -18,10 +18,19 @@ python benchmark/run_benchmark.py --systems ours,google,mms --voice selam --step
 | pauses per 10 s / mean pause | 2.6 / 0.34 s | 0.8 / 0.09 s | **4.3 / 0.37 s** |
 | last-word error rate | 2.5 % | 2.5 % | 2.5 % |
 
-On Addis AI's own 100-prompt benchmark (same recogniser for every system), the
-old-tempo build already scored **CER 3.6 % vs 5.6 % for Addis Voice 2** (better
-on 58 prompts, tied on 17), with half the sentence-end truncations; the
-re-run at the shipped defaults is in `benchmark/diag/out/addis_final`.
+On Addis AI's own 100-prompt benchmark (same recogniser for every system):
+
+| | Addis Voice 2 | amharic-tts shipped defaults |
+|---|---:|---:|
+| CER / WER | 5.6 % / 17.1 % | **3.8 % / 12.8 %** |
+| prompts won on CER | 29 | **59** (12 ties) |
+| last-word error rate | 10 % | **7 %** |
+| UTMOS / DNSMOS OVRL | **3.21 / 3.41** | 3.09 / 3.26 |
+| speaking rate (syl/s) | 5.0 | 5.6 |
+
+We are clearly more intelligible on their prompts and now match their pace;
+their voice still scores a little higher on the predicted-naturalness models
+(UTMOS better on 33 of 100 prompts for us), which is the remaining gap.
 Full method and all intermediate measurements: [DIAGNOSIS.md](DIAGNOSIS.md).
 
 ## Systems
