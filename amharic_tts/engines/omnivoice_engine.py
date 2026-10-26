@@ -60,6 +60,7 @@ class OmniVoiceEngine(Engine):
         quantize: bool = False,
         num_steps: int = 16,
         guidance_scale: float = 2.0,
+        base_tempo: float = 0.65,
         threads: int | None = None,
         voices_dir: str | os.PathLike | None = None,
         cache_dir: str | None = None,
@@ -77,6 +78,10 @@ class OmniVoiceEngine(Engine):
         torch_dtype = getattr(torch, dtype)
         self.num_steps = num_steps
         self.guidance_scale = guidance_scale
+        # Measured default: 0.65 x the model's own duration estimate gives ~5.5
+        # syllables/s with natural phrase pauses (see DIAGNOSIS.md). ``speed``
+        # passed to synthesize() is relative to this (1.0 = default tempo).
+        self.base_tempo = base_tempo
 
         from omnivoice import OmniVoice, OmniVoiceGenerationConfig, VoiceClonePrompt
 
@@ -168,8 +173,8 @@ class OmniVoiceEngine(Engine):
             torch.manual_seed(seed)
         prompt = voice_prompt if voice_prompt is not None else self._voice_prompt(voice)
         spec = self.voices.get(voice) if voice else None
-        if spec is not None and spec.speed and abs(speed - 1.0) < 1e-3:
-            speed = spec.speed  # voice-specific default tempo
+        voice_factor = spec.speed if (spec is not None and spec.speed) else 1.0
+        effective = self.base_tempo * voice_factor * float(speed)
         cfg = self._GenCfg(
             num_step=num_steps or self.num_steps,
             guidance_scale=self.guidance_scale if guidance_scale is None else guidance_scale,
@@ -182,7 +187,7 @@ class OmniVoiceEngine(Engine):
                 text=text,
                 language="Amharic",
                 voice_clone_prompt=prompt,
-                speed=None if abs(speed - 1.0) < 1e-3 else float(speed),
+                speed=None if abs(effective - 1.0) < 1e-3 else float(effective),
                 generation_config=cfg,
             )
         return np.asarray(audios[0], dtype=np.float32)

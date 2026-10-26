@@ -30,7 +30,7 @@ def main(argv: list[str] | None = None) -> int:
     s.add_argument("-o", "--out", default="out.wav", help="output file (.wav/.flac/.ogg/.mp3)")
     s.add_argument("-v", "--voice", default=None, help="voice name, 'auto' for a random voice")
     s.add_argument("-e", "--engine", default="omnivoice", choices=["omnivoice", "mms"])
-    s.add_argument("--speed", type=float, default=1.0)
+    s.add_argument("--speed", type=float, default=1.0, help="relative tempo: 1.0 = calibrated default (~5.5 syl/s), 1.2 = faster")
     s.add_argument("--steps", type=int, default=16, help="diffusion steps (omnivoice): 8 fast .. 32 best")
     s.add_argument("--device", default=None, help="cpu / cuda:0 / mps (default: auto)")
     s.add_argument("--quant", action="store_true", help="experimental int8 CPU quantisation (faster, lower quality)")
