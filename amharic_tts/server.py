@@ -222,10 +222,18 @@ def create_app(engine: str = "omnivoice", **engine_kwargs):
     return app
 
 
-def run(host: str = "0.0.0.0", port: int = 8080, engine: str = "omnivoice", **engine_kwargs):
+def run(host: str = "0.0.0.0", port: int = 8080, engine: str = "omnivoice", preload: bool = False, **engine_kwargs):
     import uvicorn
 
-    uvicorn.run(create_app(engine, **{k: v for k, v in engine_kwargs.items() if v is not None}), host=host, port=port)
+    app = create_app(engine, **{k: v for k, v in engine_kwargs.items() if v is not None})
+    if preload or os.environ.get("AMHARIC_TTS_PRELOAD") == "1":
+        app.state.preload = True
+
+        @app.on_event("startup")
+        def _warm():  # load weights before the first request so hosted instances answer /health truthfully
+            threading.Thread(target=lambda: app.router.routes and next(r for r in app.router.routes if r.path == "/v1/voices").endpoint(), daemon=True).start()
+
+    uvicorn.run(app, host=host, port=port)
 
 
 __all__ = ["create_app", "run"]

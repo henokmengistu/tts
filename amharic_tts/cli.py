@@ -62,6 +62,7 @@ def main(argv: list[str] | None = None) -> int:
     sv.add_argument("-e", "--engine", default="omnivoice", choices=["omnivoice", "mms"])
     sv.add_argument("--device", default=None)
     sv.add_argument("--steps", type=int, default=16)
+    sv.add_argument("--preload", action="store_true", help="load the model at startup instead of on the first request")
 
     args = p.parse_args(argv)
     logging.basicConfig(level=logging.INFO, format="%(levelname)s %(name)s: %(message)s")
@@ -87,7 +88,7 @@ def main(argv: list[str] | None = None) -> int:
     if args.cmd == "serve":
         from .server import run
 
-        run(host=args.host, port=args.port, engine=args.engine, device=args.device, num_steps=args.steps)
+        run(host=args.host, port=args.port, engine=args.engine, preload=args.preload, device=args.device, num_steps=args.steps)
         return 0
 
     if args.cmd != "say":

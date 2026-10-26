@@ -128,7 +128,7 @@ kbd{font-family:var(--ui);font-size:11px;border:1px solid var(--line);border-rad
   <div>
     <label class="f">amharic-tts server URL</label>
     <input type="url" id="backend" placeholder="http://localhost:8080">
-    <div class="help">Our open-source voices and Google Translate are synthesised by this server. Run <kbd>amharic-tts serve</kbd> on your computer and leave this as localhost, or paste the address of a hosted instance.</div>
+    <div class="help">Our open-source voices and Google Translate are synthesised by this server. Run <kbd>amharic-tts serve</kbd> on your computer and leave this as localhost, or paste the address of a hosted instance. <a href="#" id="reconnect" style="color:var(--accent)">Reconnect</a></div>
   </div>
   <div>
     <label class="f">Gemini API key (optional)</label>
@@ -235,6 +235,7 @@ function geminiOK(){return !!gkey||backendExt.gemini}
 function paintGemini(){$('#gdot').className='dot '+(geminiOK()?'ok':'bad');$('#gemini-t').textContent=gkey?'Gemini · your key':backendExt.gemini?'Gemini · server key':'Gemini · add a key'}
 $('#backend').value=ls.get('backend')||'';$('#backend').onchange=()=>{ls.set('backend',$('#backend').value);connect()};
 $('#gkey').value=gkey=ls.get('gkey')||'';$('#gkey').oninput=()=>{gkey=$('#gkey').value.trim();ls.set('gkey',gkey);paintGemini();renderModels()};
+$('#reconnect').onclick=e=>{e.preventDefault();connect()};
 $('#gemini-pill').onclick=()=>{$('#settings').classList.add('open');$('#gkey').focus()};
 $('#backend-pill').onclick=()=>{$('#settings').classList.add('open');$('#backend').focus()};
 
@@ -297,6 +298,7 @@ function toWav(b64,mime){
 }
 async function go(){
   const text=T.value.trim();if(!text)return;
+  if(!available(model)&&model.needs==='backend')await connect();
   if(!available(model)){$('#status').className='status err';$('#status').textContent=why(model);$('#settings').classList.add('open');return}
   const btn=$('#go'),st=$('#status');btn.disabled=true;btn.classList.add('busy');st.className='status';st.textContent='synthesising…'+(model.id==='ours'?' (a minute on CPU; the first request also loads the model)':'');
   const t0=performance.now();
