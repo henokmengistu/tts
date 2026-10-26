@@ -110,24 +110,6 @@
       "speed": 1.0
     },
     {
-      "name": "nahom",
-      "audio": "nahom.wav",
-      "gender": "male",
-      "description": "deeper male voice, calm",
-      "ref_text": "በምስራቅ ጎጃም ዞን በክረምት የወጣቶች በጎ ፈቃድ አገልግሎት ተጠቃሚ መሆናቸውን በቤት እድሳትና በሰብል ልማት ድጋፍ ያገኙ አቅመ ደካሞች ገለጹ።",
-      "source": "Dataset.ET (snapwre/amharic-speech)",
-      "license": "CC-BY-4.0",
-      "casting": {
-        "cer": 0.013,
-        "utmos": 2.634,
-        "OVRL": 3.193,
-        "e4k": 0.009,
-        "rate": 5.302,
-        "score": 0.921
-      },
-      "speed": 1.0
-    },
-    {
       "name": "dawit",
       "audio": "dawit.wav",
       "gender": "male",

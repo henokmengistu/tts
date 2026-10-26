@@ -51,7 +51,7 @@ def _ensure_model(model_path: str | None, cache_dir: str | None) -> str:
 class OmniVoiceEngine(Engine):
     name = "omnivoice"
     sample_rate = 24000
-    MIN_TEMPO = 0.62
+    MIN_TEMPO = 0.65
 
     def __init__(
         self,

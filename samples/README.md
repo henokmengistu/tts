@@ -9,5 +9,5 @@
   * `n19` ውሉ 15/02/2016 ዓ.ም. ተፈረመ። (numeric Ethiopian date)
   * `l01` a four-sentence paragraph
 * `<voice>_<topic>.mp3` — every preset voice (selam, meron, liya, sara, yonas,
-  biruk, nahom, dawit) on four texts; `samples.json` holds the text and timing
+  biruk, dawit) on four texts; `samples.json` holds the text and timing
   for each file.

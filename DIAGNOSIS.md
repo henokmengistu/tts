@@ -117,8 +117,28 @@ sentences at the new tempo; outputs were scored with the same metrics
 * WaxalNLP studio clips, although in the model's training data, cloned with
   *lower* predicted MOS (UTMOS 2.3–2.9) than Dataset.ET clips (2.6–3.5).
 * Shipped lineup (all CC-BY-4.0): female `selam`, `meron` (rank 1), `liya`,
-  `sara`; male `yonas`, `biruk`, `nahom`, `dawit`. Each voice carries a
-  tempo factor so all land near 5.5 syllables/s.
+  `sara`; male `yonas`, `biruk`, `dawit`. `nahom` was cast but retired after
+  verification (lowest predicted MOS, 2.44).
+* **Verification of the shipped voices** (4 sample texts each, shipped
+  defaults; `samples/voice_verification.json`):
+
+  | voice | syl/s | CER | UTMOS |
+  |---|---:|---:|---:|
+  | selam | 4.9 | 0.7 % | 3.30 |
+  | meron | 5.1 | 1.4 % | 3.07 |
+  | liya | 5.0 | 0.0 % | 3.16 |
+  | sara | 4.9 | 0.0 % | 3.31 |
+  | yonas | 5.6 | 2.0 % | 2.80 |
+  | biruk | 5.4 | 2.5 % | 2.77 |
+  | dawit | 4.4 | 1.2 % | 2.78 |
+
+* A first pass had equalised the male voices to the same rate by lowering
+  their tempo below 0.62× — that produced stutters and repeated words
+  (CER 4–9 %). Below that point the model fills the extra time with
+  repetitions, so the engine now clamps the effective tempo at 0.65× and
+  per-voice factors are never < 1.0. Residual: a short repeated syllable in
+  2 of 28 samples at clause boundaries of long number-heavy sentences;
+  `--speed 1.1` removes it at the cost of a slightly brisker pace.
 
 ## Comparison on Addis AI's benchmark prompts
 

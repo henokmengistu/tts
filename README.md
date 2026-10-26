@@ -11,8 +11,8 @@ open weights and open code. It combines:
 * **OmniVoice-Amharic** ([`Lab-et/omnivoice-amharic`](https://huggingface.co/Lab-et/omnivoice-amharic), Apache-2.0):
   a 0.6 B-parameter discrete-diffusion TTS fine-tuned on ~331 h of Amharic
   speech, 24 kHz output, zero-shot **voice cloning** from a 3–10 s clip.
-* **Eight ready-made voices** (4 female, 4 male), chosen by an evidence-based
-  casting run over 25 candidate clips (see DIAGNOSIS.md), plus `auto` for a
+* **Seven ready-made voices** (4 female, 3 male), chosen by an evidence-based
+  casting run over 25 candidate clips and re-verified after synthesis (see DIAGNOSIS.md), plus `auto` for a
   random voice and one-line cloning of your own.
 * **Meta MMS-TTS** (`facebook/mms-tts-amh`) as a real-time CPU fallback.
 * One-call Python API, a CLI, and a FastAPI server with an
@@ -82,7 +82,7 @@ curl -X POST http://localhost:8080/v1/audio/speech \
 | | Google TTS (Translate / gTTS `am`) | amharic-tts |
 |---|---|---|
 | Acoustic model | single proprietary voice | 0.6 B diffusion model trained on 331 h Amharic, 24 kHz |
-| Voices | 1 | 8 presets + unlimited zero-shot cloning + random |
+| Voices | 1 | 7 presets + unlimited zero-shot cloning + random |
 | Slash abbreviations (ት/ቤት, ጠ/ሚ, ክ/ከተማ) | spelled letter-by-letter or **dropped** | expanded correctly |
 | Ethiopic numerals above ፻ (፳፻፲፱ = 2019) | wrong (“ሁለት መቶ አስራ ዘጠኝ”) | correct |
 | Date order (ጥቅምት 15 ቀን 2019) | reorders to *day month* and drops ቀን | kept in Amharic order |
