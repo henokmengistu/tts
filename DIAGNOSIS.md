@@ -84,9 +84,41 @@ not help: the output is just as band-limited (the LoRA was trained on the same
 Amharic OmniVoice fine-tune stays the engine; the Chatterbox loader is kept in
 `amharic_tts/engines/chatterbox_engine.py` as an optional GPU-oriented candidate.
 
-## Ablations
+## Ablations (same 20 unseen sentences, voice `selam`, 16 steps)
 
-ABLATION_TABLE
+| run | CER | deleted / substituted words | UTMOS | DNSMOS OVRL | syl/s | pauses per 10 s | mean pause | last-word errors |
+|---|---:|---:|---:|---:|---:|---:|---:|---:|
+| old default (tempo 1.0) | 2.9 % | 10 / 28 | 3.11 | 3.18 | 7.9 | 0.8 | 0.09 s | 5 % |
+| tempo 0.75 | 2.1 % | 7 / 22 | 3.31 | 3.25 | 6.3 | 3.1 | 0.27 s | 5 % |
+| **tempo 0.65 (new default)** | 2.3 % | 9 / 24 | 3.30 | 3.27 | **5.5** | **4.3** | **0.37 s** | **0 %** |
+| tempo 0.75, no silence removal | 2.1 % | 6 / 24 | 3.34 | 3.26 | 5.7 | 3.3 | 0.29 s | 5 % |
+| tempo 0.75, one sentence per call + 400 ms pause | 2.0 % | 6 / 20 | 3.32 | 3.23 | 6.2 | 3.3 | 0.29 s | 5 % |
+| 32 diffusion steps (tempo 1.0, 20 sentences) | 2.6 % | – | 3.33 | 3.15 | 7.9 | – | – | – |
+| guidance / int8 / alternative checkpoints | see sections above | | | | | | | |
+
+Slowing the model's duration estimate is the one change that moves every
+delivery metric toward the human and Addis Voice 2 profile at once, with
+*better* intelligibility, because the model stops compressing syllables.
+Explicit sentence-level pauses or keeping all generated silence add nothing
+measurable on top of it. For reference: Addis Voice 2 = 5.0 syl/s, 4.9 pauses
+per 10 s of 0.40 s; FLEURS readers = 5.8 syl/s, 2.6 pauses of 0.34 s.
+
+## Voice casting
+
+25 candidate reference clips (the 4 original FLEURS presets, 9 WaxalNLP clips,
+12 Dataset.ET clips) were each cloned and made to read the same 4 test
+sentences at the new tempo; outputs were scored with the same metrics
+(`benchmark/diag/out/casting/ranking.md`). Findings:
+
+* The original male presets (`abebe`, `dawit`, FLEURS-train phone recordings)
+  have the darkest output of all candidates: 0.2–0.3 % energy above 4 kHz vs
+  1–3 % for the best Dataset.ET clips, and the slowest delivery. `abebe` is
+  retired; `dawit` is kept (0 % CER, distinct low timbre) with a tempo factor.
+* WaxalNLP studio clips, although in the model's training data, cloned with
+  *lower* predicted MOS (UTMOS 2.3–2.9) than Dataset.ET clips (2.6–3.5).
+* Shipped lineup (all CC-BY-4.0): female `selam`, `meron` (rank 1), `liya`,
+  `sara`; male `yonas`, `biruk`, `nahom`, `dawit`. Each voice carries a
+  tempo factor so all land near 5.5 syllables/s.
 
 ## Comparison on Addis AI's benchmark prompts
 
@@ -119,4 +151,17 @@ parameters the fixes below target.
 
 ## Changes made as a result
 
-CHANGES
+1. **Default tempo** is now 0.65 × the model's duration estimate (`base_tempo`
+   in `OmniVoiceEngine`; `speed` is relative to it, 1.0 = default). Measured
+   effect: 7.9 → 5.5 syl/s, 0.8 → 4.3 pauses per 10 s, CER 2.9 → 2.3 %,
+   UTMOS 3.11 → 3.30, end-of-sentence truncation 5 → 0 %.
+2. **Voice lineup** replaced by the casting winners (8 voices, 4 female /
+   4 male) with per-voice tempo equalisation.
+3. **No int8 quantisation, no base/Leyu checkpoint, no Chatterbox by default**
+   (all measured worse or equal; see above).
+4. **Spectral correction** (`amharic_tts.audio.apply_eq`) stays optional: the
+   4–8 kHz deficit is intrinsic to every open Amharic checkpoint, the EQ did
+   not move any predicted-quality metric, and Addis Voice 2 is equally
+   band-limited, so this is not what listeners react to.
+5. Final verification at the shipped defaults: see the "Final" rows in
+   BENCHMARK.md once `benchmark/diag/out/final` and `addis_final` complete.
