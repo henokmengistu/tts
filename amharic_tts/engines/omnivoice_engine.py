@@ -51,6 +51,7 @@ def _ensure_model(model_path: str | None, cache_dir: str | None) -> str:
 class OmniVoiceEngine(Engine):
     name = "omnivoice"
     sample_rate = 24000
+    MIN_TEMPO = 0.62
 
     def __init__(
         self,
@@ -175,6 +176,12 @@ class OmniVoiceEngine(Engine):
         spec = self.voices.get(voice) if voice else None
         voice_factor = spec.speed if (spec is not None and spec.speed) else 1.0
         effective = self.base_tempo * voice_factor * float(speed)
+        # Below ~0.6x the model starts to fill the extra time with stutters and
+        # repeated words (measured: male voices at 0.57-0.61 produced repeats,
+        # all voices at >=0.65 were clean), so clamp the slow end.
+        if effective < self.MIN_TEMPO:
+            logger.warning("tempo %.2f is below the safe minimum; clamping to %.2f", effective, self.MIN_TEMPO)
+            effective = self.MIN_TEMPO
         cfg = self._GenCfg(
             num_step=num_steps or self.num_steps,
             guidance_scale=self.guidance_scale if guidance_scale is None else guidance_scale,
