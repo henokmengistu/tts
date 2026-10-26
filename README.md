@@ -102,8 +102,12 @@ ASR round-trip character error rate with an independent Amharic recogniser:
 | MMS-TTS | 8.3 % | 4.5 % | 6.3 % |
 | **amharic-tts** | 2.2 % | **2.6 %** | **2.3 %** |
 
-Predicted-MOS scores (UTMOS, DNSMOS) are on par with Google's voice; on
-normalisation-heavy text Google makes 5.5× more errors.
+On Addis AI's own public 100-prompt benchmark, scored with the same
+independent recogniser, amharic-tts reaches **CER 3.6 % vs 5.6 % for Addis
+Voice 2** (better on 58 prompts, tied on 17) with half the sentence-end
+truncations. Delivery was then calibrated to Addis Voice 2's calm pace
+(5.5 syllables/s, natural phrase pauses) and the voices re-cast by measurement;
+the full diagnosis and every number are in [DIAGNOSIS.md](DIAGNOSIS.md).
 
 Listen for yourself: [`samples/compare/`](samples/compare) has the same
 sentences spoken by amharic-tts, Google and MMS, and [`samples/`](samples)
@@ -145,8 +149,8 @@ tts = AmharicTTS(normalizer=NormalizerOptions(
 ### Performance
 
 OmniVoice-Amharic is a 600 M-parameter model. Measured on this project's
-4-core CPU box: real-time factor ≈ 4–6 at 16 diffusion steps (≈ 1 min for a
-12 s sentence) and ≈ 7–9 at 32 steps; a single T4 GPU gives well under 1.
+4-core CPU box: real-time factor ≈ 7 at 16 diffusion steps and the calibrated
+tempo (≈ 70 s for a 10 s sentence); a single T4 GPU gives well under 1.
 32 steps measured no better than 16 (see BENCHMARK.md), and `--steps 8` is
 noticeably faster with a small quality cost; MMS (`-e mms`) runs faster than
 real time on CPU. Long inputs are synthesised chunk by chunk,

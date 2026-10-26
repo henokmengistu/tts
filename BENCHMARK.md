@@ -8,6 +8,22 @@ pip install -e ".[all]"
 python benchmark/run_benchmark.py --systems ours,google,mms --voice selam --steps 16
 ```
 
+## Headline (after the quality pass documented in DIAGNOSIS.md)
+
+| metric (40 unseen FLEURS test sentences, independent recogniser) | human recordings | amharic-tts v0.1 (old tempo) | **amharic-tts shipped defaults** |
+|---|---:|---:|---:|
+| CER / WER | 6.9 % / 20.0 % | 2.6 % / 11.4 % | **2.5 % / 10.7 %** |
+| UTMOS / DNSMOS OVRL | 2.95 / 2.84 | 3.14 / 3.21 | **3.30 / 3.31** |
+| speaking rate (syl/s) | 5.8 | 7.9 | **5.5** |
+| pauses per 10 s / mean pause | 2.6 / 0.34 s | 0.8 / 0.09 s | **4.3 / 0.37 s** |
+| last-word error rate | 2.5 % | 2.5 % | 2.5 % |
+
+On Addis AI's own 100-prompt benchmark (same recogniser for every system), the
+old-tempo build already scored **CER 3.6 % vs 5.6 % for Addis Voice 2** (better
+on 58 prompts, tied on 17), with half the sentence-end truncations; the
+re-run at the shipped defaults is in `benchmark/diag/out/addis_final`.
+Full method and all intermediate measurements: [DIAGNOSIS.md](DIAGNOSIS.md).
+
 ## Systems
 
 | system | what it is |
