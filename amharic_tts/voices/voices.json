@@ -1,13 +1,142 @@
 {
-  "license": "Reference clips are from Google FLEURS (am_et), CC-BY-4.0. https://huggingface.co/datasets/google/fleurs",
+  "license": "Reference clips: FLEURS (CC-BY-4.0), Dataset.ET / snapwre/amharic-speech (CC-BY-4.0), WaxalNLP via addisai/amharic-tts-benchmark (CC-BY-SA-4.0). See each voice's 'source'.",
   "voices": [
-    {"name": "selam", "audio": "selam.wav", "gender": "female", "description": "clear, neutral female news-reading voice (default)",
-     "ref_text": "በሽተኛው በናይጄሪያ ነበር አንዳንድ የኢቦላ ቫይረስ የተከሰተበት ስፍራ።", "source": "google/fleurs am_et dev 8454968810419015880", "license": "CC-BY-4.0"},
-    {"name": "hana", "audio": "hana.wav", "gender": "female", "description": "warm female voice, slightly slower delivery",
-     "ref_text": "በዚህ ወቅት የመጀመሪያዎቹ የበሽታው አጋጣሚዎች በሐምሌ ወር መጨረሻ ላይ ነበር ሪፖርት የተደረጉት።", "source": "google/fleurs am_et dev 4645007359104857933", "license": "CC-BY-4.0"},
-    {"name": "abebe", "audio": "abebe.wav", "gender": "male", "description": "clear male voice, neutral read style", "speed": 1.15,
-     "ref_text": "ሁሉም አደጋው ከነበረበት ቦታ ሮጠው ሄዱ።", "source": "google/fleurs am_et train 11504885075435382487", "license": "CC-BY-4.0"},
-    {"name": "dawit", "audio": "dawit.wav", "gender": "male", "description": "deeper male voice, calm delivery", "speed": 1.1,
-     "ref_text": "ጎብኚዎች ባላቸው ጥቂት ጊዜ በሌላ ቦታ ቢያሳልፉ ይመከራል።", "source": "google/fleurs am_et train 4098048737560961134", "license": "CC-BY-4.0"}
+    {
+      "name": "selam",
+      "audio": "selam.wav",
+      "gender": "female",
+      "description": "clear, neutral female news-reading voice (default)",
+      "ref_text": "በሽተኛው በናይጄሪያ ነበር አንዳንድ የኢቦላ ቫይረስ የተከሰተበት ስፍራ።",
+      "source": "fleurs(current)",
+      "license": "CC-BY-4.0",
+      "casting": {
+        "cer": 0.022,
+        "utmos": 3.429,
+        "OVRL": 3.334,
+        "e4k": 0.005,
+        "rate": 5.233,
+        "score": 0.903
+      }
+    },
+    {
+      "name": "meron",
+      "audio": "meron.wav",
+      "gender": "female",
+      "description": "bright, articulate female voice (top of casting)",
+      "ref_text": "ከአሁን በኋላ መደበኛ ትምህርታቸውን በጥሩ ሁኔታ በመከታተል ትልቅ ደረጃ ለመድረስ ጠንክረው እንደሚማሩ ገልጸዋል።",
+      "source": "Dataset.ET (snapwre/amharic-speech)",
+      "license": "CC-BY-4.0",
+      "casting": {
+        "cer": 0.003,
+        "utmos": 3.201,
+        "OVRL": 3.308,
+        "e4k": 0.024,
+        "rate": 5.233,
+        "score": 1.065
+      }
+    },
+    {
+      "name": "liya",
+      "audio": "liya.wav",
+      "gender": "female",
+      "description": "warm, bright female voice",
+      "ref_text": "ልጆች ሲያጠፉ ከመቅጣት ይልቅ ምክርን ማስቀደም ልጆች በምክር ካልተመለሱ በተቀመጠው ሕግ መሰረት መቅጣት ተገቢ ነው ።",
+      "source": "Dataset.ET (snapwre/amharic-speech)",
+      "license": "CC-BY-4.0",
+      "casting": {
+        "cer": 0.013,
+        "utmos": 3.473,
+        "OVRL": 3.272,
+        "e4k": 0.03,
+        "rate": 4.764,
+        "score": 0.997
+      }
+    },
+    {
+      "name": "sara",
+      "audio": "sara.wav",
+      "gender": "female",
+      "description": "light, friendly female voice",
+      "ref_text": "ይህ ካንሰር በአብዛኛው ሴቶችን የሚያጠቃ የካንሰር ዓይነት መሆኑንም ገልጸዋል።",
+      "source": "Dataset.ET (snapwre/amharic-speech)",
+      "license": "CC-BY-4.0",
+      "casting": {
+        "cer": 0.021,
+        "utmos": 3.397,
+        "OVRL": 3.374,
+        "e4k": 0.018,
+        "rate": 5.546,
+        "score": 0.97
+      }
+    },
+    {
+      "name": "yonas",
+      "audio": "yonas.wav",
+      "gender": "male",
+      "description": "clear, bright male voice",
+      "ref_text": "አመራሩም ትምሕርትን የመጀመሪያው አጀንዳ አድርጎ ለስኬታማነቱ መረባረብ እንዳለበት  አስገንዝበዋል።",
+      "source": "Dataset.ET (snapwre/amharic-speech)",
+      "license": "CC-BY-4.0",
+      "casting": {
+        "cer": 0.01,
+        "utmos": 3.015,
+        "OVRL": 3.296,
+        "e4k": 0.021,
+        "rate": 5.961,
+        "score": 0.942
+      }
+    },
+    {
+      "name": "biruk",
+      "audio": "biruk.wav",
+      "gender": "male",
+      "description": "neutral male voice, steady delivery",
+      "ref_text": "በአከባበሩ ላይ ከተገኙት መካከል ወይዘሮ ፋይዛ ሙስጠፋ ኢሬቻ ሁላችንም ያለምንም ልዩነት የምናከብረው በዓል ነው ብለዋል።",
+      "source": "Dataset.ET (snapwre/amharic-speech)",
+      "license": "CC-BY-4.0",
+      "casting": {
+        "cer": 0.015,
+        "utmos": 2.958,
+        "OVRL": 3.333,
+        "e4k": 0.01,
+        "rate": 5.539,
+        "score": 0.923
+      }
+    },
+    {
+      "name": "nahom",
+      "audio": "nahom.wav",
+      "gender": "male",
+      "description": "deeper male voice, calm",
+      "ref_text": "በምስራቅ ጎጃም ዞን በክረምት የወጣቶች በጎ ፈቃድ አገልግሎት ተጠቃሚ መሆናቸውን በቤት እድሳትና በሰብል ልማት ድጋፍ ያገኙ አቅመ ደካሞች ገለጹ።",
+      "source": "Dataset.ET (snapwre/amharic-speech)",
+      "license": "CC-BY-4.0",
+      "casting": {
+        "cer": 0.013,
+        "utmos": 2.634,
+        "OVRL": 3.193,
+        "e4k": 0.009,
+        "rate": 5.302,
+        "score": 0.921
+      }
+    },
+    {
+      "name": "dawit",
+      "audio": "dawit.wav",
+      "gender": "male",
+      "description": "low male voice, slow calm delivery",
+      "ref_text": "ጎብኚዎች ባላቸው ጥቂት ጊዜ በሌላ ቦታ ቢያሳልፉ ይመከራል።",
+      "source": "fleurs(current)",
+      "license": "CC-BY-4.0",
+      "casting": {
+        "cer": 0.0,
+        "utmos": 2.995,
+        "OVRL": 3.119,
+        "e4k": 0.002,
+        "rate": 4.172,
+        "score": 1.017
+      },
+      "speed": 1.1
+    }
   ]
 }

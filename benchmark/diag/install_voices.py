@@ -21,13 +21,13 @@ for line in (CAST / "results.jsonl").read_text(encoding="utf-8").splitlines():
 # name -> (candidate, gender, description, default speed)
 LINEUP = {
     "selam": ("cur_selam", "female", "clear, neutral female news-reading voice (default)"),
-    "meron": ("et_f21b5e", "female", "bright, warm female voice"),
-    "liya": ("et_8b71aa", "female", "light, friendly female voice"),
-    "hana": ("cur_hana", "female", "soft female voice, slightly slower delivery"),
+    "meron": ("et_2c5d5e", "female", "bright, articulate female voice (top of casting)"),
+    "liya": ("et_f21b5e", "female", "warm, bright female voice"),
+    "sara": ("et_8b71aa", "female", "light, friendly female voice"),
     "yonas": ("et_58d897", "male", "clear, bright male voice"),
     "biruk": ("et_12b419", "male", "neutral male voice, steady delivery"),
     "nahom": ("et_dddcc0", "male", "deeper male voice, calm"),
-    "tesfa": ("wx_am-066", "male", "low male narrator voice (studio read speech)"),
+    "dawit": ("cur_dawit", "male", "low male voice, slow calm delivery"),
 }
 
 
