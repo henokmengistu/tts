@@ -196,6 +196,10 @@ def create_app(engine: str = "omnivoice", **engine_kwargs):
         wav = np.frombuffer(pcm, dtype=np.int16).astype(np.float32) / 32768.0
         return Response(content=encode_audio(wav, sr, "wav"), media_type="audio/wav")
 
+    @app.post("/v1/normalize")
+    def normalize(req: TextRequest):
+        return {"normalized": get_tts().normalize(req.input)}
+
     @app.post("/v1/audio/speech")
     def speech(req: SpeechRequest):
         if not req.input.strip():
