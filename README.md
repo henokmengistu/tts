@@ -11,8 +11,9 @@ open weights and open code. It combines:
 * **OmniVoice-Amharic** ([`Lab-et/omnivoice-amharic`](https://huggingface.co/Lab-et/omnivoice-amharic), Apache-2.0):
   a 0.6 B-parameter discrete-diffusion TTS fine-tuned on ~331 h of Amharic
   speech, 24 kHz output, zero-shot **voice cloning** from a 3–10 s clip.
-* **Four ready-made voices** (2 female, 2 male; CC-BY-4.0 reference clips from
-  FLEURS) plus `auto` for a random voice and one-line cloning of your own.
+* **Eight ready-made voices** (4 female, 4 male), chosen by an evidence-based
+  casting run over 25 candidate clips (see DIAGNOSIS.md), plus `auto` for a
+  random voice and one-line cloning of your own.
 * **Meta MMS-TTS** (`facebook/mms-tts-amh`) as a real-time CPU fallback.
 * One-call Python API, a CLI, and a FastAPI server with an
   **OpenAI-compatible `/v1/audio/speech`** endpoint and a web demo.
@@ -31,7 +32,7 @@ pip install -e ".[all]"
 
 # speak (models download automatically on first use, ~3.3 GB)
 amharic-tts say "ሰላም፣ እንኳን ደህና መጣችሁ። ዛሬ ጥቅምት 15 ቀን 2019 ዓ.ም. ነው።" -o hello.wav
-amharic-tts say -f article.txt -o article.mp3 --voice abebe --speed 1.05
+amharic-tts say -f article.txt -o article.mp3 --voice yonas
 amharic-tts say "ሰላም" -e mms -o fast.wav              # real-time fallback voice
 
 # see exactly what will be spoken
@@ -54,7 +55,7 @@ from amharic_tts import AmharicTTS
 tts = AmharicTTS()                                   # OmniVoice-Amharic, auto device
 tts.save("የኢትዮጵያ ብሔራዊ ባንክ ዛሬ አዲስ መመሪያ አወጣ።", "news.wav", voice="selam")
 
-res = tts.synthesize("ሰላም ዓለም", voice="dawit", speed=1.1)
+res = tts.synthesize("ሰላም ዓለም", voice="meron")
 res.audio, res.sample_rate, res.text   # numpy float32, 24000, normalised text
 
 for chunk in tts.stream(long_text):     # progressive playback, chunk by chunk
@@ -68,7 +69,7 @@ tts.to_bytes("ሰላም", fmt="mp3")        # wav / flac / ogg / mp3 / opus
 ```bash
 curl -X POST http://localhost:8080/v1/audio/speech \
   -H 'content-type: application/json' \
-  -d '{"input": "እንኳን ደህና መጡ።", "voice": "hana", "response_format": "mp3", "speed": 1.0}' \
+  -d '{"input": "እንኳን ደህና መጡ።", "voice": "liya", "response_format": "mp3", "speed": 1.0}' \
   -o welcome.mp3
 ```
 
@@ -81,7 +82,7 @@ curl -X POST http://localhost:8080/v1/audio/speech \
 | | Google TTS (Translate / gTTS `am`) | amharic-tts |
 |---|---|---|
 | Acoustic model | single proprietary voice | 0.6 B diffusion model trained on 331 h Amharic, 24 kHz |
-| Voices | 1 | 4 presets + unlimited zero-shot cloning + random |
+| Voices | 1 | 8 presets + unlimited zero-shot cloning + random |
 | Slash abbreviations (ት/ቤት, ጠ/ሚ, ክ/ከተማ) | spelled letter-by-letter or **dropped** | expanded correctly |
 | Ethiopic numerals above ፻ (፳፻፲፱ = 2019) | wrong (“ሁለት መቶ አስራ ዘጠኝ”) | correct |
 | Date order (ጥቅምት 15 ቀን 2019) | reorders to *day month* and drops ቀን | kept in Amharic order |
@@ -158,7 +159,9 @@ so memory stays flat for arbitrarily long documents.
 * Code: Apache-2.0.
 * OmniVoice-Amharic weights: Apache-2.0 (Lab-et / african-low-resource; base
   model k2-fsa/OmniVoice, audio tokenizer HiggsAudio-v2).
-* Preset voice clips: Google FLEURS `am_et`, CC-BY-4.0.
+* Preset voice clips: Google FLEURS `am_et` (CC-BY-4.0) and Dataset.ET
+  (`snapwre/amharic-speech`, CC-BY-4.0); attribution per voice in
+  `amharic_tts/voices/voices.json`.
 * MMS-TTS-amh weights: CC-BY-NC-4.0 (non-commercial) — only used if you pick `-e mms`.
 * Benchmark ASR: `snapwre/hohe-asr-amharic`, CC-BY-4.0.
 
