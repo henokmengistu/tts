@@ -169,6 +169,38 @@ PAIR_SCHEMA = {
 }
 
 
+ISSUE_TYPES = ["missing_word", "extra_word", "repeated_or_stutter", "mispronounced", "wrong_gemination_or_stress",
+               "unnatural_pause", "rushed_or_slurred", "robotic_or_metallic", "noise_or_artifact", "cut_off",
+               "wrong_intonation", "wrong_number_or_abbreviation_reading", "other"]
+
+DIAG_SCHEMA = {
+    "type": "object",
+    "properties": {
+        "transcript_heard": {"type": "string"},
+        "issues": {
+            "type": "array",
+            "items": {
+                "type": "object",
+                "properties": {
+                    "type": {"type": "string", "enum": ISSUE_TYPES},
+                    "text_word": {"type": "string"},
+                    "heard_as": {"type": "string"},
+                    "start": {"type": "string"},
+                    "end": {"type": "string"},
+                    "severity": {"type": "integer"},
+                    "description": {"type": "string"},
+                },
+                "required": ["type", "text_word", "heard_as", "start", "end", "severity", "description"],
+            },
+        },
+        "overall_impression": {"type": "string"},
+        "would_a_native_listener_notice_problems": {"type": "boolean"},
+        "overall": {"type": "integer"},
+    },
+    "required": ["transcript_heard", "issues", "overall_impression", "would_a_native_listener_notice_problems", "overall"],
+}
+
+
 def rank_schema(n: int) -> dict:
     return {
         "type": "object",
@@ -261,6 +293,23 @@ class Judge:
                   "that were missed, mispronounced, or repeated/stuttered (copy them from the text); a short comment.")
         return self._call([prompt, self.audio_part(wav)], RATE_SCHEMA, key)
 
+    def diagnose(self, wav: bytes, text: str, key: str) -> dict:
+        prompt = (f"{RUBRIC}\n\nThe speaker was supposed to read exactly this Amharic text:\n\"{text}\"\n\n"
+                  "Listen carefully, several times if needed, and produce a precise defect report:\n"
+                  "1. transcript_heard: what you actually hear, verbatim, in Ethiopic script.\n"
+                  "2. issues: every problem, in time order. For each give: type (one of "
+                  f"{', '.join(ISSUE_TYPES)}); text_word = the word(s) from the text where it happens (copy exactly); "
+                  "heard_as = what was actually said (Ethiopic, or '' if nothing); start and end as MM:SS.s from the "
+                  "beginning of the clip; severity 1 (subtle) / 2 (noticeable) / 3 (clearly wrong or breaks meaning); "
+                  "a one-sentence description of what is wrong and why it sounds wrong. "
+                  "Include pronunciation faults such as wrong consonant length (gemination), wrong vowel order, "
+                  "ejective vs plain confusion, dropped syllables, robotic or buzzing stretches, unnatural pauses or "
+                  "rushed stretches, and wrong readings of numbers, dates or abbreviations. If the clip is flawless, "
+                  "return an empty list.\n"
+                  "3. overall_impression: two sentences a native listener would say about this clip.\n"
+                  "4. would_a_native_listener_notice_problems: true/false.  5. overall: 1-5.\nReturn JSON.")
+        return self._call([prompt, self.audio_part(wav)], DIAG_SCHEMA, key)
+
     def pair(self, wav_a: bytes, wav_b: bytes, text: str, key: str) -> dict:
         prompt = (f"{RUBRIC}\n\nBoth clips are meant to read this Amharic text:\n\"{text}\"\n\n"
                   "Clip A is first, clip B is second. Which clip is better overall, which is more natural, and which is "
@@ -301,7 +350,8 @@ def main():
     ap.add_argument("--model", default=DEFAULT_MODEL)
     ap.add_argument("--n", type=int, default=30, help="number of prompts (random, fixed seed)")
     ap.add_argument("--seed", type=int, default=11)
-    ap.add_argument("--protocols", default="transcribe,rate,pair,rank")
+    ap.add_argument("--protocols", default="transcribe,diagnose,pair,rank",
+                    help="comma list of: transcribe, rate, diagnose, pair, rank")
     ap.add_argument("--systems", default=None, help="comma list of name=dir; default: Addis benchmark systems + ours")
     ap.add_argument("--reference", default="ours", help="system used as the anchor in pairwise comparisons")
     ap.add_argument("--rank-repeats", type=int, default=2)
@@ -357,6 +407,8 @@ def main():
                 jobs.append(("transcribe", p, s, None, None))
             if "rate" in protocols:
                 jobs.append(("rate", p, s, None, None))
+            if "diagnose" in protocols:
+                jobs.append(("diagnose", p, s, None, None))
         if "pair" in protocols and args.reference in p["clips"]:
             for s in p["clips"]:
                 if s == args.reference:
@@ -381,6 +433,10 @@ def main():
             key = f"rate|{args.model}|{p['id']}|{s}"
             r = judge.rate(wavs[(p["id"], s)], text, key)
             return {"kind": kind, "id": p["id"], "system": s, **r}
+        if kind == "diagnose":
+            key = f"diagnose|{args.model}|{p['id']}|{s}"
+            r = judge.diagnose(wavs[(p["id"], s)], text, key)
+            return {"kind": kind, "id": p["id"], "system": s, "text": text, **r}
         if kind == "pair":
             a, b = (s, s2) if extra == "ref_first" else (s2, s)
             key = f"pair|{args.model}|{p['id']}|{a}|{b}"
@@ -411,7 +467,53 @@ def main():
     if args.dry_run:
         print("dry run complete: data and prompts are ready")
         return
+    write_issue_maps(results, systems, wavs, out)
     report(results, systems, args, out / "report.md")
+
+
+def _parse_ts(t: str) -> float | None:
+    m = re.match(r"^\s*(?:(\d+):)?(\d+(?:\.\d+)?)\s*$", str(t or ""))
+    if not m:
+        return None
+    return (int(m.group(1)) if m.group(1) else 0) * 60 + float(m.group(2))
+
+
+def write_issue_maps(results: list[dict], systems: list[str], wavs: dict, out: Path) -> None:
+    """Per-system issue tables (where + what) and audio snippets around every flagged spot."""
+    import soundfile as sf
+
+    diag = [r for r in results if r["kind"] == "diagnose"]
+    if not diag:
+        return
+    snip_root = out / "snippets"
+    for s in systems:
+        rows = [r for r in diag if r["system"] == s]
+        if not rows:
+            continue
+        L = [f"# Issues heard in `{s}`", "", f"{len(rows)} clips; {sum(len(r.get('issues') or []) for r in rows)} issues; "
+             f"native listener would notice problems in {sum(bool(r.get('would_a_native_listener_notice_problems')) for r in rows)} clips.", "",
+             "| prompt | time | type | sev | word in text | heard as | what is wrong | snippet |", "|---|---|---|---:|---|---|---|---|"]
+        for r in rows:
+            wav = wavs.get((r["id"], s))
+            for k, it in enumerate(r.get("issues") or []):
+                t0, t1 = _parse_ts(it.get("start")), _parse_ts(it.get("end"))
+                snip = ""
+                if wav is not None and t0 is not None:
+                    y, sr = sf.read(io.BytesIO(wav))
+                    a = max(0, int((t0 - 0.7) * sr))
+                    b = min(len(y), int(((t1 if t1 and t1 > t0 else t0 + 1.0) + 0.7) * sr))
+                    if b > a:
+                        d = snip_root / s
+                        d.mkdir(parents=True, exist_ok=True)
+                        fn = d / f"{r['id']}_{k:02d}_{it.get('type','issue')}.wav"
+                        sf.write(str(fn), y[a:b], sr)
+                        snip = str(fn.relative_to(out))
+                L.append(f"| {r['id']} | {it.get('start','')}–{it.get('end','')} | {it.get('type','')} | {it.get('severity','')} | "
+                         f"{it.get('text_word','')} | {it.get('heard_as','')} | {it.get('description','').replace('|','/')} | {snip} |")
+        L += ["", "## Clip impressions", ""]
+        for r in rows:
+            L.append(f"- **{r['id']}** (overall {r.get('overall','?')}/5): {r.get('overall_impression','')}")
+        (out / f"issues_{s}.md").write_text("\n".join(L), encoding="utf-8")
 
 
 def report(results: list[dict], systems: list[str], args, path: Path) -> None:
@@ -445,6 +547,24 @@ def report(results: list[dict], systems: list[str], args, path: Path) -> None:
                      f"{m('voice_quality'):.2f} | {m('prosody'):.2f} | {st.mean(bool(r.get('robotic')) for r in v)*100:.0f} % | "
                      f"{st.mean(bool(r.get('cut_off')) for r in v)*100:.0f} % | {st.mean(len(r.get('missed_words') or []) for r in v):.2f} | "
                      f"{st.mean(len(r.get('mispronounced_words') or []) for r in v):.2f} |")
+        L.append("")
+    # diagnose summary
+    dg = [r for r in results if r["kind"] == "diagnose"]
+    if dg:
+        L += ["## Where and what goes wrong (time-stamped defect reports; full lists in issues_<system>.md)", "",
+              "| system | clips | issues / clip | severe (3) / clip | overall 1-5 | native would notice | top issue types |",
+              "|---|---:|---:|---:|---:|---:|---|"]
+        for s in systems:
+            v = [r for r in dg if r["system"] == s]
+            if not v:
+                continue
+            issues = [it for r in v for it in (r.get("issues") or [])]
+            from collections import Counter
+
+            top = ", ".join(f"{t} ×{c}" for t, c in Counter(it.get("type") for it in issues).most_common(4))
+            L.append(f"| {s} | {len(v)} | {len(issues)/len(v):.2f} | {sum(int(it.get('severity',0) or 0)==3 for it in issues)/len(v):.2f} | "
+                     f"{st.mean(float(r.get('overall',0) or 0) for r in v):.2f} | "
+                     f"{st.mean(bool(r.get('would_a_native_listener_notice_problems')) for r in v)*100:.0f} % | {top} |")
         L.append("")
     # pairwise
     pa = [r for r in results if r["kind"] == "pair"]

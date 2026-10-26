@@ -23,10 +23,37 @@ position bias in A/B tests, a preference for louder and longer clips, and
 * uses low temperature, JSON-schema outputs, and caches every answer in
   `results.jsonl` (resumable, reproducible).
 
-Four protocols: `transcribe` (CER of Gemini's own transcript), `rate`
-(1–5 naturalness / intelligibility / voice quality / prosody / overall, plus
-flags and word lists), `pair` (win rate vs. a reference system), `rank`
-(full ranking per sentence). Report: `benchmark/out/gemini_judge/report.md`.
+Five protocols: `transcribe` (CER of Gemini's own transcript), `diagnose`
+(**where and what**: a time-stamped defect list per clip), `rate` (1–5
+naturalness / intelligibility / voice quality / prosody / overall, plus flags
+and word lists), `pair` (win rate vs. a reference system), `rank` (full
+ranking per sentence). Report: `benchmark/out/gemini_judge/report.md`.
+
+### The `diagnose` protocol (default on)
+
+For every clip Gemini gets the intended text and must return, in time order,
+each defect it hears with:
+
+* `type` — one of: missing_word, extra_word, repeated_or_stutter,
+  mispronounced, wrong_gemination_or_stress, unnatural_pause,
+  rushed_or_slurred, robotic_or_metallic, noise_or_artifact, cut_off,
+  wrong_intonation, wrong_number_or_abbreviation_reading, other;
+* `text_word` — the exact word(s) from the text where it happens;
+* `heard_as` — what was actually said (Ethiopic);
+* `start` / `end` — position in the clip (MM:SS.s);
+* `severity` 1–3 and a one-sentence explanation;
+
+plus the transcript it heard, a two-sentence native-listener impression, a
+"would a native notice problems" flag and an overall 1–5.
+
+The script turns this into `issues_<system>.md` (one row per defect with
+prompt, time, type, severity, word, heard-as, explanation) and cuts a
+**snippet WAV** around every flagged spot into `snippets/<system>/` so you can
+listen to the exact moment. The main report adds a per-system summary
+(issues per clip, severe issues per clip, how often a native would notice, the
+most frequent defect types). Running it on `--voices` gives the same defect
+map for each of our preset voices, which is the fastest way to see what is
+wrong with a specific voice.
 
 ## Running it
 
@@ -34,7 +61,8 @@ flags and word lists), `pair` (win rate vs. a reference system), `rank`
 export GEMINI_API_KEY=...            # or store it as an environment secret
 python benchmark/gemini_judge.py --list-models            # confirm the model id
 python benchmark/gemini_judge.py --n 20 --protocols rank,transcribe   # cheap first look (≈180 requests)
-python benchmark/gemini_judge.py --n 30                   # all four protocols (≈840 requests)
+python benchmark/gemini_judge.py --n 20 --protocols diagnose          # where/what defect maps + snippets (140 requests)
+python benchmark/gemini_judge.py --n 30                   # transcribe + diagnose + pair + rank (≈840 requests)
 python benchmark/gemini_judge.py --voices                 # rank our 7 preset voices on samples/
 python benchmark/gemini_judge.py --model gemini-3.8-flash --n 50       # cheaper model, more prompts
 ```
