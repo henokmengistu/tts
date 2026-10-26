@@ -151,13 +151,25 @@ def encode_audio(wav: np.ndarray, sr: int, fmt: str = "wav", out_sr: int | None 
         return buf.getvalue()
     if fmt in ("mp3", "m4a", "opus"):
         import subprocess
+        import tempfile
 
-        codec = {"mp3": ["-codec:a", "libmp3lame", "-b:a", "96k"], "m4a": ["-codec:a", "aac", "-b:a", "96k"],
+        # Lossy formats are written to a real file, not a pipe, so ffmpeg can seek back and write the
+        # Xing/duration header (players such as Windows Media Player, QuickTime and many phones refuse
+        # or mis-seek a headerless stream).  MP3 is produced as MPEG-1 Layer III at 44.1 kHz, the one
+        # profile every player decodes; 24 kHz input would otherwise become MPEG-2 LSF.
+        codec = {"mp3": ["-codec:a", "libmp3lame", "-b:a", "128k", "-ar", "44100", "-write_xing", "1", "-id3v2_version", "3"],
+                 "m4a": ["-codec:a", "aac", "-b:a", "128k", "-ar", "44100", "-movflags", "+faststart"],
                  "opus": ["-codec:a", "libopus", "-b:a", "48k"]}[fmt]
-        cmd = ["ffmpeg", "-loglevel", "error", "-y", "-f", "s16le", "-ar", str(sr), "-ac", "1", "-i", "pipe:0", *codec,
-               "-f", {"m4a": "ipod"}.get(fmt, fmt), "pipe:1"]
-        proc = subprocess.run(cmd, input=A.to_int16(wav).tobytes(), capture_output=True, check=True)
-        return proc.stdout
+        suffix = {"m4a": ".m4a", "opus": ".opus", "mp3": ".mp3"}[fmt]
+        with tempfile.NamedTemporaryFile(suffix=suffix, delete=False) as tmp:
+            out_path = tmp.name
+        try:
+            cmd = ["ffmpeg", "-loglevel", "error", "-y", "-f", "s16le", "-ar", str(sr), "-ac", "1", "-i", "pipe:0",
+                   *codec, out_path]
+            subprocess.run(cmd, input=A.to_int16(wav).tobytes(), capture_output=True, check=True)
+            return Path(out_path).read_bytes()
+        finally:
+            Path(out_path).unlink(missing_ok=True)
     raise ValueError(f"unsupported format {fmt!r}")
 
 

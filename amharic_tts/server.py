@@ -36,12 +36,16 @@ def external_backends() -> dict:
 
 
 def create_app(engine: str = "omnivoice", **engine_kwargs):
-    from fastapi import FastAPI, HTTPException
+    from fastapi import FastAPI, HTTPException, Request
     from fastapi.responses import FileResponse, HTMLResponse, Response
     from pydantic import BaseModel
 
+    from fastapi.middleware.cors import CORSMiddleware
+
     app = FastAPI(title="Amharic TTS", version="0.1.0")
-    state = {"tts": None, "genai": None}
+    app.add_middleware(CORSMiddleware, allow_origins=["*"], allow_methods=["*"], allow_headers=["*"],
+                       expose_headers=["X-Audio-Seconds", "X-RTF"])
+    state = {"tts": None, "genai": {}}
     lock = threading.Lock()
     lock_ext = threading.Lock()
 
@@ -111,25 +115,69 @@ def create_app(engine: str = "omnivoice", **engine_kwargs):
             raise HTTPException(502, f"Google TTS failed: {e}")
         return Response(content=buf.getvalue(), media_type="audio/mpeg")
 
+    GEMINI_VOICES = [
+        ("Kore", "female", "firm, clear"), ("Aoede", "female", "breezy"), ("Leda", "female", "youthful"),
+        ("Zephyr", "female", "bright"), ("Autonoe", "female", "bright"), ("Despina", "female", "smooth"),
+        ("Erinome", "female", "clear"), ("Sulafat", "female", "warm"), ("Vindemiatrix", "female", "gentle"),
+        ("Achernar", "female", "soft"), ("Puck", "male", "upbeat"), ("Charon", "male", "informative"),
+        ("Fenrir", "male", "excitable"), ("Orus", "male", "firm"), ("Iapetus", "male", "clear"),
+        ("Algieba", "male", "smooth"), ("Schedar", "male", "even"), ("Gacrux", "male", "mature"),
+        ("Achird", "male", "friendly"), ("Sadaltager", "male", "knowledgeable"),
+    ]
+    GEMINI_MODELS = [("gemini-3.8-flash-tts", "Gemini 3.8 Flash TTS"), ("gemini-3.8-flash-lite-tts", "Gemini 3.8 Flash-Lite TTS"),
+                     ("gemini-3.1-flash-tts-preview", "Gemini 3.1 Flash TTS (preview)")]
+
+    class GeminiRequest(BaseModel):
+        input: str
+        voice: Optional[str] = None
+        model: Optional[str] = None
+        style: Optional[str] = None   # natural-language delivery instruction, e.g. "read like a news anchor"
+
+    @app.get("/v1/models")
+    def models():
+        """Every engine the studio can speak with, and its voices."""
+        tts = get_tts()
+        reg = getattr(tts.engine, "voices", None)
+        default = tts.default_voice()
+        ours = [{"name": v.name, "gender": v.gender, "description": v.description, "default": v.name == default,
+                 "reference": f"/v1/voices/{v.name}/reference"} for v in (reg.all() if reg is not None else [])]
+        ext = external_backends()
+        return {"models": [
+            {"id": "ours", "name": "amharic-tts", "detail": "OmniVoice-Amharic 0.6B, open source, runs here",
+             "available": True, "voices": ours, "controls": ["speed", "steps", "seed"]},
+            *[{"id": mid, "name": label, "detail": "Google Gemini, prompt-steerable, Amharic in preview",
+               "available": bool(ext.get("gemini")), "reason": ext.get("gemini_reason", ""), "key_optional": True,
+               "voices": [{"name": n, "gender": g, "description": d} for n, g, d in GEMINI_VOICES], "controls": ["style"]}
+              for mid, label in GEMINI_MODELS],
+            {"id": "google", "name": "Google Translate", "detail": "the voice behind translate.google.com (gTTS)",
+             "available": bool(ext.get("google")), "reason": ext.get("google_reason", ""),
+             "voices": [{"name": "default", "gender": "female", "description": "single Amharic voice"}], "controls": []},
+        ]}
+
     @app.post("/v1/external/gemini")
-    def external_gemini(req: TextRequest):
-        """Gemini TTS (needs GEMINI_API_KEY), for side-by-side listening only."""
-        key = os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
+    def external_gemini(req: GeminiRequest, request: Request):
+        """Gemini TTS, for side-by-side listening. Key: GEMINI_API_KEY on the server or an X-Gemini-Key header."""
+        key = request.headers.get("x-gemini-key") or os.environ.get("GEMINI_API_KEY") or os.environ.get("GOOGLE_API_KEY")
         if not key:
-            raise HTTPException(501, "set GEMINI_API_KEY")
+            raise HTTPException(501, "set GEMINI_API_KEY on the server or paste your own key in the studio")
         try:
             from google import genai
             from google.genai import types
         except ImportError:
             raise HTTPException(501, "pip install google-genai")
-        model = os.environ.get("GEMINI_TTS_MODEL", "gemini-3.8-flash-tts")
-        voice = os.environ.get("GEMINI_TTS_VOICE", "Kore")
+        model = req.model or os.environ.get("GEMINI_TTS_MODEL", "gemini-3.8-flash-tts")
+        if model not in {m for m, _ in GEMINI_MODELS}:
+            raise HTTPException(400, f"unknown Gemini TTS model {model!r}")
+        voice = req.voice or os.environ.get("GEMINI_TTS_VOICE", "Kore")
+        text = f"{req.style.strip()}:\n{req.input}" if req.style and req.style.strip() else req.input
         with lock_ext:
-            if state.get("genai") is None:
-                state["genai"] = genai.Client(api_key=key)
+            clients = state.setdefault("genai", {})
+            if key not in clients:
+                clients[key] = genai.Client(api_key=key)
+            client = clients[key]
         try:
-            resp = state["genai"].models.generate_content(
-                model=model, contents=req.input,
+            resp = client.models.generate_content(
+                model=model, contents=text,
                 config=types.GenerateContentConfig(
                     response_modalities=["AUDIO"],
                     speech_config=types.SpeechConfig(voice_config=types.VoiceConfig(
@@ -147,10 +195,6 @@ def create_app(engine: str = "omnivoice", **engine_kwargs):
         sr = int(m.group(1)) if (m := _re.search(r"rate=(\d+)", mime)) else 24000  # raw audio/L16 PCM
         wav = np.frombuffer(pcm, dtype=np.int16).astype(np.float32) / 32768.0
         return Response(content=encode_audio(wav, sr, "wav"), media_type="audio/wav")
-
-    @app.post("/v1/normalize")
-    def normalize(req: TextRequest):
-        return {"normalized": get_tts().normalize(req.input)}
 
     @app.post("/v1/audio/speech")
     def speech(req: SpeechRequest):
