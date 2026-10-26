@@ -64,6 +64,20 @@ for chunk in tts.stream(long_text):     # progressive playback, chunk by chunk
 tts.to_bytes("ሰላም", fmt="mp3")        # wav / flac / ogg / mp3 / opus
 ```
 
+### Web studio
+
+```bash
+pip install -e ".[omnivoice,server]"      # plus `gtts` / `google-genai` for the compare panel
+amharic-tts serve --port 8080             # then open http://localhost:8080
+```
+
+The page served at `/` is a small studio: type Amharic, pick one of the seven
+preset voices (each card plays its reference clip), set speed / diffusion steps
+/ seed, and press **Speak**. Tick **Google TTS** or **Gemini TTS** to hear the
+same sentence from those services next to ours (Gemini needs `GEMINI_API_KEY`;
+both are fetched live and never required). Every take lands in a history list
+with a waveform player and a download link.
+
 ### HTTP (OpenAI-compatible)
 
 ```bash

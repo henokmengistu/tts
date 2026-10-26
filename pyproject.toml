@@ -39,6 +39,7 @@ include = ["amharic_tts*"]
 
 [tool.setuptools.package-data]
 "amharic_tts.voices" = ["*.json", "*.wav"]
+"amharic_tts.web" = ["*.html"]
 
 [tool.pytest.ini_options]
 testpaths = ["tests"]
